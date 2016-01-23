@@ -1,0 +1,46 @@
+<input type="file" id="fileinput" />
+<script type="text/javascript">
+  function readSingleFile(evt) {
+    //Retrieve the first (and only!) File from the FileList object
+    var f = evt.target.files[0]; 
+
+    var makeArr = [{"name":"Acura", "value":"20001"},{"name":"Alfa Romeo", "value":"20047"},{"name":"Am General", "value":"20002"},{"name":"Aston Martin", "value":"20003"},{"name":"Audi", "value":"20049"},{"name":"Avanti Motors", "value":"20050"},{"name":"Bentley", "value":"20051"},{"name":"BMW", "value":"20005"},{"name":"Bugatti", "value":"33583"},{"name":"Buick", "value":"20006"},{"name":"Cadillac", "value":"20052"},{"name":"Chevrolet", "value":"20053"},{"name":"Chrysler", "value":"20008"},{"name":"Daewoo", "value":"20009"},{"name":"Daihatsu", "value":"20055"},{"name":"Dodge", "value":"20012"},{"name":"Eagle", "value":"20058"},{"name":"Ferrari", "value":"20014"},{"name":"FIAT", "value":"20060"},{"name":"Fisker", "value":"41703"},{"name":"Ford", "value":"20015"},{"name":"Geo", "value":"20062"},{"name":"GMC", "value":"20061"},{"name":"Honda", "value":"20017"},{"name":"Hummer", "value":"20018"},{"name":"Hyundai", "value":"20064"},{"name":"Infiniti", "value":"20019"},{"name":"International", "value":"20065"},{"name":"Isuzu", "value":"20020"},{"name":"Jaguar", "value":"20066"},{"name":"Jeep", "value":"20021"},{"name":"Kia", "value":"20068"},{"name":"Koenigsegg", "value":"33663"},{"name":"Lamborghini", "value":"20069"},{"name":"Land Rover", "value":"20024"},{"name":"Lexus", "value":"20070"},{"name":"Lincoln", "value":"20025"},{"name":"Lotus", "value":"20071"},{"name":"Maserati", "value":"20072"},{"name":"Maybach", "value":"20027"},{"name":"Mazda", "value":"20073"},{"name":"McLaren", "value":"47903"},{"name":"Mercedes-Benz", "value":"20028"},{"name":"Mercury", "value":"20074"},{"name":"MINI", "value":"20075"},{"name":"Mitsubishi", "value":"20030"},{"name":"Morgan", "value":"20076"},{"name":"Nissan", "value":"20077"},{"name":"Oldsmobile", "value":"20032"},{"name":"Panoz", "value":"20079"},{"name":"Peugeot", "value":"20034"},{"name":"Plymouth", "value":"20080"},{"name":"Pontiac", "value":"20035"},{"name":"Porsche", "value":"20081"},{"name":"Qvale", "value":"20036"},{"name":"RAM", "value":"44763"},{"name":"Rolls-Royce", "value":"20037"},{"name":"Saab", "value":"20038"},{"name":"Saleen", "value":"20084"},{"name":"Saturn", "value":"20039"},{"name":"Scion", "value":"20085"},{"name":"smart", "value":"20228"},{"name":"Spyker", "value":"33584"},{"name":"Sterling", "value":"20040"},{"name":"Subaru", "value":"20041"},{"name":"Suzuki", "value":"20042"},{"name":"Tesla", "value":"28263"},{"name":"Toyota", "value":"20088"},{"name":"Volkswagen", "value":"20089"},{"name":"Volvo", "value":"20044"},{"name":"Yugo", "value":"20045"}];
+
+    if (f) {
+      var r = new FileReader();
+      r.onload = function(e) { 
+        var contents = e.target.result;
+        // alert( "Got the file.n" 
+        //       +"name: " + f.name + "n"
+        //       +"type: " + f.type + "n"
+        //       +"size: " + f.size + " bytesn"
+        //       + "starts with: " + contents.substr(1, contents.indexOf("n"))
+        // );
+        var myArray = contents.split("\n");
+        var a = 0;
+        var modelArray = [];
+        var oArray = [];
+
+        for (var i=0; i<myArray.length; i++) {
+          if ( (myArray[i].match(/^[A-Z]/))  && (myArray[i].length < 20) ) {
+            for (var h=0; h<makeArr.length; h++) {
+              if (makeArr[h].name == myArray[i]) {
+                modelArray.push({make:myArray[i],mkId:makeArr[h].value})
+              }
+            }
+            a++;
+          } else {
+            var s = myArray[i].split(".");
+            oArray[a-1] = {make:modelArray[a-1].make,mkId:modelArray[a-1].mkId,model:s[1],mdId:s[0]};
+            console.log("{make:'"+modelArray[a-1].make+"',mkId:'"+modelArray[a-1].mkId+"',model:'"+s[1]+"',mdId:'"+s[0]+"'},");
+          }
+        }
+      }
+      r.readAsText(f);
+    } else { 
+      alert("Failed to load file");
+    }
+  }
+
+  document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+</script>
