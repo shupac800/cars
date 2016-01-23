@@ -1040,69 +1040,19 @@ var modelYear = {
                  "2017":30031936
                 };
 
-var radius = "50";             // must match one of the options? or can be arbitrary?
-var zipcode = "37212";         // required
-var makeName = "Honda";        // must be valid
-var modelName = "Civic";       // must be valid
-var keyWord = "Si";            // optional; can be ""
-// var mkId = get_mkId(makeName);
-// var mdId = get_mdId(modelName);
+///// ***BEGIN MAIN*** /////
 
-// console.log("radius:",radius);
-// console.log("zipcode:",zipcode);
-// console.log("Make ID:",mkId);
-// console.log("Model ID:",mdId);
-// console.log("keywords:",keyWord);
+  var zipcode = document.getElementById("zip");
+  var radius = document.getElementById("radius");
+  var inputMake = document.getElementById("make_0");
+  var inputYearLow = document.getElementById("yearLow");
+  var inputYearHigh = document.getElementById("yearHigh");
+  var keyword = document.getElementById("keyword");
+  var inputModel = document.getElementById("model_0");
 
-// var yrId = [];
-// var yrIdString = "";
-
-// yrId.push(modelYear["2011"]); // modelYear is hash table
-// yrId.push(modelYear["2012"]); // modelYear is hash table
-
-
-
-// var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
-//     urlString += "&rd=" + radius;
-//     urlString += "&zc=" + zipcode;
-//     urlString += "&mkId=" + mkId;
-//     urlString += "&mdId=" + mdId;
-//     urlString += "&kw=" + keyWord + "&kwm=ANY";
-//     urlString += yrIdString;
-
-// console.log("Search string is:",urlString);
-
-// // scan name:value pairs in makeArray to match makeName with mkId
-// function get_mkId(makeName) {
-//   for (var i=0; i < makeArr.length; i++) {
-//     if (makeArr[i].name == makeName) {
-//       return makeArr[i].value;
-//     }
-//   }
-//   return null;
-// }
-
-// // scan name:value pairs in modelArray to match modelName with mdId
-// function get_mdId(modelName) {
-//   for (var i=0; i < modelArr.length; i++) {
-//     if (modelArr[i].name == modelName) {
-//       return modelArr[i].value;
-//     }
-//   }
-//   return null;
-// }
-
-/* SAMPLE URLSTRING:
-http://www.cars.com/for-sale/searchresults.action?&rd=50&zc=37212&mkId=20017&mdId=20606&yrId=47272
-*/
-
-var inputMake = document.getElementById("make_0");
-var inputModel = document.getElementById("model_0");
-var inputYearLow = document.getElementById("yearLow");
-var inputYearHigh = document.getElementById("yearHigh");
+///// ***END MAIN*** /////
 
 function loadModelDropdown (mkId) {
-  console.log("received parameter",mkId);
   // build HTML string for model dropdown and pass it through DOM
   var modelMenu = "";
 
@@ -1114,23 +1064,29 @@ function loadModelDropdown (mkId) {
   inputModel.innerHTML = "<option value=''>All Makes</option>"+ modelMenu;
 }
 
-function getArrayLine(mdId) {
-  for (k=0; k<carsArray.length; k++) {
-    if (carsArray[k].mdId == mdId) {
-      console.log("array line for this model is",k);
-      return k;
-    }
-  }
-}
-
 function fooFunction() {
+
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
-  urlString += "&rd=" + radius;
-  urlString += "&zc=" + zipcode;
+  urlString += "&rd=" + radius.value;
+  urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
-  urlString += "&kw=" + keyWord + "&kwm=ANY";
+  urlString += "&kw=" + keyword.value + "&kwm=ANY";
   urlString += makeYearString(yearLow.value,yearHigh.value);
+
+  console.log(urlString);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', encodeURI(urlString));
+  xhr.onload = function() {
+      if (xhr.status === 200) {
+          alert('User\'s name is ' + xhr.responseText);
+      }
+      else {
+          alert('Request failed.  Returned status of ' + xhr.status);
+      }
+  };
+  xhr.send();
 }
 
 function makeYearString(yearLowId,yearHighId) {
