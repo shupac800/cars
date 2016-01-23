@@ -1,6 +1,3 @@
-var inputMake = document.getElementById("make_0");
-var inputModel = document.getElementById("model_0");
-
 var carsArray = [
 {make:'Acura',mkId:'20001',model:'CL',mdId:'20773'},
 {make:'Acura',mkId:'20001',model:'ILX',mdId:'47843'},
@@ -990,7 +987,7 @@ var carsArray = [
 {make:'Volvo',mkId:'20044',model:'XC90',mdId:'22380'},
 {make:'Volvo',mkId:'20044',model:'XC90 Hybrid',mdId:'30023481'} ];
 
-var modelYear = {"xxxx":"",
+var modelYear = {
                  "1968":20125,
                  "1969":20181,
                  "1970":20126,
@@ -1043,9 +1040,6 @@ var modelYear = {"xxxx":"",
                  "2017":30031936
                 };
 
-
-
-
 var radius = "50";             // must match one of the options? or can be arbitrary?
 var zipcode = "37212";         // required
 var makeName = "Honda";        // must be valid
@@ -1066,10 +1060,7 @@ var keyWord = "Si";            // optional; can be ""
 // yrId.push(modelYear["2011"]); // modelYear is hash table
 // yrId.push(modelYear["2012"]); // modelYear is hash table
 
-// for (var i=0; i < yrId.length; i++) {
-//   console.log("Year ID",yrId[i]);
-//   yrIdString += "&yrId=" + yrId[i];
-// }
+
 
 // var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
 //     urlString += "&rd=" + radius;
@@ -1105,6 +1096,11 @@ var keyWord = "Si";            // optional; can be ""
 http://www.cars.com/for-sale/searchresults.action?&rd=50&zc=37212&mkId=20017&mdId=20606&yrId=47272
 */
 
+var inputMake = document.getElementById("make_0");
+var inputModel = document.getElementById("model_0");
+var inputYearLow = document.getElementById("yearLow");
+var inputYearHigh = document.getElementById("yearHigh");
+
 function loadModelDropdown (mkId) {
   console.log("received parameter",mkId);
   // build HTML string for model dropdown and pass it through DOM
@@ -1115,13 +1111,43 @@ function loadModelDropdown (mkId) {
       modelMenu += "<option value='"+carsArray[k].mdId+"'>"+carsArray[k].model+"</option>";
     }
   }
-  inputModel.innerHTML = modelMenu;
+  inputModel.innerHTML = "<option value=''>All Makes</option>"+ modelMenu;
 }
 
 function getArrayLine(mdId) {
   for (k=0; k<carsArray.length; k++) {
     if (carsArray[k].mdId == mdId) {
+      console.log("array line for this model is",k);
       return k;
     }
   }
+}
+
+function fooFunction() {
+  var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
+  urlString += "&rd=" + radius;
+  urlString += "&zc=" + zipcode;
+  urlString += "&mkId=" + inputMake.value;
+  urlString += "&mdId=" + inputModel.value;
+  urlString += "&kw=" + keyWord + "&kwm=ANY";
+  urlString += makeYearString(yearLow.value,yearHigh.value);
+}
+
+function makeYearString(yearLowId,yearHighId) {
+  var yrLow, yrHigh, yrStringForURL = "";
+
+  for (var j=1968; j<=2017; j++) {
+    if (modelYear[j.toString()] == yearLowId) {
+      yrLow = j;
+    }
+    if (modelYear[j.toString()] == yearHighId) {
+      yrHigh = j;
+    }
+  }
+
+  for (var j=yrLow; j<=yrHigh; j++) {
+    yrStringForURL += "&yrId=" + modelYear[j.toString()];
+  }
+
+  return yrStringForURL;
 }
