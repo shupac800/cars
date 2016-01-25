@@ -1001,11 +1001,15 @@ var keyword =       document.getElementById("keyword");
 var outputField =   document.getElementById("output");
 
 var rv = document.getElementsByClassName("row vehicle");  // array with all results on page
+var stype = document.getElementsByClassName("stocktypesort"); // "New" or ""
+var myear = document.getElementsByClassName("modelyearsort"); // array with all model years
 var ext_color = document.getElementsByClassName("exteriorColorSort"); // array with all ext colors
 var mmt = document.getElementsByClassName("mmtSort"); // array with all descriptions
 var transmission = document.getElementsByClassName("transmissionSort"); // array with all transmission types
 var price = document.getElementsByClassName("priceSort"); // array with all prices
 var mileage = document.getElementsByClassName("milesSort"); // array with all mileages
+
+var rg = [];  // results (global); for use with console
 // END GLOBALS
 
 
@@ -1030,14 +1034,17 @@ function fooFunction() {
 
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
   urlString += "&rd=" + radius.value;
-  urlString += "&uncpo=2"; // new=1, used=2, CPO=3
+  urlString += "&uncpo=2&stkTyp=U"; // new=1, used=2, CPO=3, stkTyp can be U(sed) or N(ew)
   urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
   urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";
   urlString += makeYearString(yearLow.value,yearHigh.value);
+  urlString += "&rpp=250"; // results per page, can be (10,20,30,50,100,250)
 
-  console.log(urlString);
+  // note: to search for a vehicle by ID, use the ID number as a keyword
+
+  console.log("bulit URL string:",urlString);
 
   doCORSRequest({method:'GET',url:urlString,data:""});
 }
@@ -1054,17 +1061,19 @@ function doCORSRequest(options) {
       // process results
       var results = [];
 
-      console.log("rv is:",rv);
-
       for (m=0; m < rv.length; m++) {
-        results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
-                        color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")),
-                        desc:mmt[m].innerHTML,
-                        transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")),
-                        mileage:mileage[m].innerHTML.replace(",","").slice(0,-4),  // lop off " mi."
-                        price:price[m].innerHTML.replace("$","").replace(",","") } );
+//        if (stype !== "New") { // we only want used
+          results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
+                          year:myear[m].innerHTML,
+                          color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")), // lop off trailing tags
+                          desc:mmt[m].innerHTML,
+                          transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")), // lop off trailing tags
+                          mileage:mileage[m].innerHTML.replace(",","").slice(0,-4),  // lop off " mi."
+                          price:price[m].innerHTML.replace("$","").replace(",","") } );
+//        }
       }
       console.log(results);
+      rg = results;
 
     }  // end function
   }  // end if
