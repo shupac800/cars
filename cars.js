@@ -1000,8 +1000,12 @@ var keyword =       document.getElementById("keyword");
 
 var outputField =   document.getElementById("output");
 
-var a = document.getElementsByClassName("row vehicle");
-
+var rv = document.getElementsByClassName("row vehicle");  // array with all results on page
+var ext_color = document.getElementsByClassName("exteriorColorSort"); // array with all ext colors
+var mmt = document.getElementsByClassName("mmtSort"); // array with all descriptions
+var transmission = document.getElementsByClassName("transmissionSort"); // array with all transmission types
+var price = document.getElementsByClassName("priceSort"); // array with all prices
+var mileage = document.getElementsByClassName("milesSort"); // array with all mileages
 // END GLOBALS
 
 
@@ -1026,6 +1030,7 @@ function fooFunction() {
 
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
   urlString += "&rd=" + radius.value;
+  urlString += "&uncpo=2"; // new=1, used=2, CPO=3
   urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
@@ -1047,15 +1052,19 @@ function doCORSRequest(options) {
     if ( (x.readyState === x.DONE) && (x.status === 200) ) {
       outputField.innerHTML = x.response;
       // process results
-      var p;
-      var price = [];
+      var results = [];
 
-      console.log("a is:",a);
+      console.log("rv is:",rv);
 
-      for (m=0; m < a.length; m++) {
-        price.push(parseInt(a[m].innerHTML.replace("$","").replace(",","")));
+      for (m=0; m < rv.length; m++) {
+        results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
+                        color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")),
+                        desc:mmt[m].innerHTML,
+                        transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")),
+                        mileage:mileage[m].innerHTML.replace(",","").slice(0,-4),  // lop off " mi."
+                        price:price[m].innerHTML.replace("$","").replace(",","") } );
       }
-      console.log(price);
+      console.log(results);
 
     }  // end function
   }  // end if
