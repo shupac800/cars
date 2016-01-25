@@ -1,3 +1,4 @@
+// BEGIN GLOBALS
 var carsArray = [
 {make:'Acura',mkId:'20001',model:'CL',mdId:'20773'},
 {make:'Acura',mkId:'20001',model:'ILX',mdId:'47843'},
@@ -987,71 +988,27 @@ var carsArray = [
 {make:'Volvo',mkId:'20044',model:'XC90',mdId:'22380'},
 {make:'Volvo',mkId:'20044',model:'XC90 Hybrid',mdId:'30023481'} ];
 
-var modelYear = {
-                 "1968":20125,
-                 "1969":20181,
-                 "1970":20126,
-                 "1971":20182,
-                 "1972":20127,
-                 "1973":20183,
-                 "1974":20128,
-                 "1975":20184,
-                 "1976":20129,
-                 "1977":20185,
-                 "1978":20130,
-                 "1979":20186,
-                 "1980":20131,
-                 "1981":20187,
-                 "1982":20132,
-                 "1983":20188,
-                 "1984":20133,
-                 "1985":20189,
-                 "1986":20134,
-                 "1987":20190,
-                 "1988":20135,
-                 "1989":20191,
-                 "1990":20136,
-                 "1991":20192,
-                 "1992":20137,
-                 "1993":20193,
-                 "1994":20138,
-                 "1995":20194,
-                 "1996":20139,
-                 "1997":20195,
-                 "1998":20140,
-                 "1999":20196,
-                 "2000":20141,
-                 "2001":20197,
-                 "2002":20142,
-                 "2003":20198,
-                 "2004":20143,
-                 "2005":20199,
-                 "2006":20144,
-                 "2007":20200,
-                 "2008":20145,
-                 "2009":20201,
-                 "2010":27381,
-                 "2011":34923,
-                 "2012":39723,
-                 "2013":47272,
-                 "2014":51683,
-                 "2015":56007,
-                 "2016":58487,
-                 "2017":30031936
-                };
+var modelYear = {"1968":20125, "1969":20181, "1970":20126, "1971":20182, "1972":20127, "1973":20183, "1974":20128, "1975":20184, "1976":20129, "1977":20185, "1978":20130, "1979":20186, "1980":20131, "1981":20187, "1982":20132, "1983":20188, "1984":20133, "1985":20189, "1986":20134, "1987":20190, "1988":20135, "1989":20191, "1990":20136, "1991":20192, "1992":20137, "1993":20193, "1994":20138, "1995":20194, "1996":20139, "1997":20195, "1998":20140, "1999":20196, "2000":20141, "2001":20197, "2002":20142, "2003":20198, "2004":20143, "2005":20199, "2006":20144, "2007":20200, "2008":20145, "2009":20201, "2010":27381, "2011":34923, "2012":39723, "2013":47272, "2014":51683, "2015":56007, "2016":58487, "2017":30031936 };
 
-///// ***BEGIN MAIN*** /////
+var zipcode =       document.getElementById("zip");
+var radius =        document.getElementById("radius");
+var inputMake =     document.getElementById("make_0");
+var inputModel =    document.getElementById("model_0");
+var inputYearLow =  document.getElementById("yearLow");
+var inputYearHigh = document.getElementById("yearHigh");
+var keyword =       document.getElementById("keyword");
 
-  var zipcode = document.getElementById("zip");
-  var radius = document.getElementById("radius");
-  var inputMake = document.getElementById("make_0");
-  var inputYearLow = document.getElementById("yearLow");
-  var inputYearHigh = document.getElementById("yearHigh");
-  var keyword = document.getElementById("keyword");
-  var inputModel = document.getElementById("model_0");
+var outputField =   document.getElementById("output");
+
+var a = document.getElementsByClassName("row vehicle");
+
+// END GLOBALS
+
+
 
 ///// ***END MAIN*** /////
 
+///////////////////////////
 function loadModelDropdown (mkId) {
   // build HTML string for model dropdown and pass it through DOM
   var modelMenu = "";
@@ -1063,32 +1020,47 @@ function loadModelDropdown (mkId) {
   }
   inputModel.innerHTML = "<option value=''>All Makes</option>"+ modelMenu;
 }
-
+///////////////////////////
 function fooFunction() {
+  // build urlString and fetch the data
 
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
   urlString += "&rd=" + radius.value;
   urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
-  urlString += "&kw=" + keyword.value + "&kwm=ANY";
+  urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";
   urlString += makeYearString(yearLow.value,yearHigh.value);
 
   console.log(urlString);
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', encodeURI(urlString));
-  xhr.onload = function() {
-      if (xhr.status === 200) {
-          alert('User\'s name is ' + xhr.responseText);
-      }
-      else {
-          alert('Request failed.  Returned status of ' + xhr.status);
-      }
-  };
-  xhr.send();
+  doCORSRequest({method:'GET',url:urlString,data:""});
 }
+///////////////////////////
+function doCORSRequest(options) {
+  var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
 
+  var x = new XMLHttpRequest();
+  x.open(options.method, cors_api_url + options.url);  //note syntax for x.open
+  x.send(options.data);                                //note syntax for x.send
+  x.onload = function() {  // upon onload, do this function
+    if ( (x.readyState === x.DONE) && (x.status === 200) ) {
+      outputField.innerHTML = x.response;
+      // process results
+      var p;
+      var price = [];
+
+      console.log("a is:",a);
+
+      for (m=0; m < a.length; m++) {
+        price.push(parseInt(a[m].innerHTML.replace("$","").replace(",","")));
+      }
+      console.log(price);
+
+    }  // end function
+  }  // end if
+}  // end function
+///////////////////////////
 function makeYearString(yearLowId,yearHighId) {
   var yrLow, yrHigh, yrStringForURL = "";
 
@@ -1107,3 +1079,15 @@ function makeYearString(yearLowId,yearHighId) {
 
   return yrStringForURL;
 }
+///////////////////////////
+function makeKeywordString(keyword) {
+  var keywordList = "";
+
+  for (var l=0; l<keyword.length; l++) {
+    keywordList += "+" + keyword[l];
+  }
+  keywordList = keywordList.substr(1); // chop off leading "+"
+
+  return "&kw=" + keywordList;
+}
+///////////////////////////
