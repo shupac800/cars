@@ -1002,7 +1002,7 @@ var outputField =   document.getElementById("output");
 
 var rv = document.getElementsByClassName("row vehicle");  // array with all results on page
 var stype = document.getElementsByClassName("stocktypesort"); // "New" or ""
-var myear = document.getElementsByClassName("modelyearsort"); // array with all model years
+var myear = document.getElementsByClassName("modelYearSort"); // array with all model years
 var ext_color = document.getElementsByClassName("exteriorColorSort"); // array with all ext colors
 var mmt = document.getElementsByClassName("mmtSort"); // array with all descriptions
 var transmission = document.getElementsByClassName("transmissionSort"); // array with all transmission types
@@ -1010,6 +1010,7 @@ var price = document.getElementsByClassName("priceSort"); // array with all pric
 var mileage = document.getElementsByClassName("milesSort"); // array with all mileages
 
 var rg = [];  // results (global); for use with console
+
 // END GLOBALS
 
 
@@ -1034,7 +1035,7 @@ function fooFunction() {
 
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
   urlString += "&rd=" + radius.value;
-  urlString += "&uncpo=2&stkTyp=U"; // new=1, used=2, CPO=3, stkTyp can be U(sed) or N(ew)
+  urlString += "&uncpo=2&stkTyp=U"; // new=1, used=2, CPO=3; stkTyp can be U(sed) or N(ew)
   urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
@@ -1044,7 +1045,7 @@ function fooFunction() {
 
   // note: to search for a vehicle by ID, use the ID number as a keyword
 
-  console.log("bulit URL string:",urlString);
+  console.log("built URL string:",urlString);
 
   doCORSRequest({method:'GET',url:urlString,data:""});
 }
@@ -1063,17 +1064,25 @@ function doCORSRequest(options) {
 
       for (m=0; m < rv.length; m++) {
 //        if (stype !== "New") { // we only want used
+  try{
           results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
                           year:myear[m].innerHTML,
-                          color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")), // lop off trailing tags
+                          color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
                           desc:mmt[m].innerHTML,
-                          transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")), // lop off trailing tags
-                          mileage:mileage[m].innerHTML.replace(",","").slice(0,-4),  // lop off " mi."
+                          transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
+                          mileage:mileage[m].innerHTML.replace(",","").slice(0,-4) || "***",  // lop off " mi."
                           price:price[m].innerHTML.replace("$","").replace(",","") } );
 //        }
+} catch(err) {
+  console.log("caught error at m=",m);
+  console.log("last index in transmission array:",transmission.length-1);
+  // throwing an error because max m is 106 and highest transmission index is 104
+}
       }
       console.log(results);
-      rg = results;
+      localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
+      rg = results;  // assign local results variable to global results variable
+//      window.location.pathname = "display_results.html";  // open new HTML page
 
     }  // end function
   }  // end if
