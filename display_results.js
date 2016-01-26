@@ -9,7 +9,6 @@ for (var i = 0; i < results.length; i++) {
 }
 
 function fill_firstRow() {
-  console.log("yabba");
   var newNode = document.createElement('article');
   newNode.setAttribute("class","row");
   var outputHTML = '<span class="cell-id">Vehicle ID</span>';

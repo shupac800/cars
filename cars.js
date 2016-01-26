@@ -1046,6 +1046,7 @@ function fooFunction() {
 ///////////////////////////
 function doCORSRequest(options) {
   var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+  var results = [];
 
   var x = new XMLHttpRequest();
   x.open(options.method, cors_api_url + options.url);  //note syntax for x.open
@@ -1054,11 +1055,14 @@ function doCORSRequest(options) {
     if ( (x.readyState === x.DONE) && (x.status === 200) ) {
       outputField.innerHTML = x.response;
       // process results
-      var results = [];
 
       for (m=0; m < vehicle.length; m++) {
-
+try {
         var vehicleObj = JSON.parse(vehicle[m].getAttribute("data-js-vehicle-row"));  // parse data from custom attribute
+} 
+catch (excption) {
+  console.log("JSON parse error at m=",m);
+}
         // console.log("vm_id:",vehicle[m].id);
         console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
         console.log("stock type:",vehicleObj.stockType);
@@ -1073,11 +1077,11 @@ function doCORSRequest(options) {
         var description = vehicle[m].children.item(1).children.item(1).innerHTML;
         var extColor = sliceIt(description,"exteriorColorSort");
         var transmission = sliceIt(description,"transmissionSort");
-        var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
+        // var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
 
         console.log("Color:",extColor);
         console.log("Trans:",transmission);
-        console.log("Snoopy:",snoopy);
+        // console.log("Snoopy:",snoopy);
 
         var col8alignright = vehicle[m].children.item(2).children.item(2).innerHTML
         // console.log("col8alignright:",col8alignright);
@@ -1085,31 +1089,35 @@ function doCORSRequest(options) {
 
         console.log("mileage:",mileage);
 
-        function sliceIt(wholeString,searchString) {
-          var startPos = wholeString.indexOf(searchString) + searchString.length + 2;
-          var endPos = wholeString.indexOf("<",startPos);
-          if (wholeString.indexOf(searchString) >= 0) {  // was searchString found in wholeString?
-            return wholeString.slice(startPos,endPos);
-          } else {
-            return "***NOT FOUND***";
-          }
-        }
-      }
-    }
+        results.push( { id:vehicleObj.listingId,
+                        year:year,
+                        color:extColor,
+                        desc:name,
+                        transmission:transmission,
+                        mileage:mileage,
+                        price:vehicleObj.price } );
+      } // end for m
+      console.log("hola");
+      localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
+      rg = results;  // assign local results variable to global results variable
+      window.location.pathname = "display_results.html";  // open new HTML page
+    } // end if
+  } // end onload function
+} // end function doCORSRequest
+
+function sliceIt(wholeString,searchString) {
+  var startPos = wholeString.indexOf(searchString) + searchString.length + 2;
+  var endPos = wholeString.indexOf("<",startPos);
+  if (wholeString.indexOf(searchString) >= 0) {  // was searchString found in wholeString?
+    return wholeString.slice(startPos,endPos);
+  } else {
+    return "***NOT FOUND***";
   }
 }
 
 
-
 //        if (stype !== "New") { // we only want used
 //   try{
-//           results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
-//                           year:myear[m].innerHTML,
-//                           color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-//                           desc:mmt[m].innerHTML,
-//                           transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-//                           mileage:mileage[m].innerHTML.replace(",","").slice(0,-4) || "***",  // lop off " mi."
-//                           price:price[m].innerHTML.replace("$","").replace(",","") } );
 // //        }
 // } catch(err) {
 //   console.log("caught error at m=",m);
@@ -1121,9 +1129,6 @@ function doCORSRequest(options) {
 // }
 //       }
 //       console.log(results);
-//       localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
-//       rg = results;  // assign local results variable to global results variable
-//      window.location.pathname = "display_results.html";  // open new HTML page
 
 ///////////////////////////
 function makeYearString(yearLowId,yearHighId) {
