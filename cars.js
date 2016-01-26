@@ -1000,14 +1000,8 @@ var keyword =       document.getElementById("keyword");
 
 var outputField =   document.getElementById("output");
 
-var rv = document.getElementsByClassName("row vehicle");  // array with all results on page
-var stype = document.getElementsByClassName("stocktypesort"); // "New" or ""
-var myear = document.getElementsByClassName("modelYearSort"); // array with all model years
-var ext_color = document.getElementsByClassName("exteriorColorSort"); // array with all ext colors
-var mmt = document.getElementsByClassName("mmtSort"); // array with all descriptions
-var transmission = document.getElementsByClassName("transmissionSort"); // array with all transmission types
-var price = document.getElementsByClassName("priceSort"); // array with all prices
-var mileage = document.getElementsByClassName("milesSort"); // array with all mileages
+var vehicle = document.getElementsByClassName("vehicle");  // array with all results on page
+document.registerElement("data-js-vehicle-row");
 
 var rg = [];  // results (global); for use with console
 
@@ -1062,31 +1056,75 @@ function doCORSRequest(options) {
       // process results
       var results = [];
 
-      for (m=0; m < rv.length; m++) {
-//        if (stype !== "New") { // we only want used
-  try{
-          results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
-                          year:myear[m].innerHTML,
-                          color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-                          desc:mmt[m].innerHTML,
-                          transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-                          mileage:mileage[m].innerHTML.replace(",","").slice(0,-4) || "***",  // lop off " mi."
-                          price:price[m].innerHTML.replace("$","").replace(",","") } );
-//        }
-} catch(err) {
-  console.log("caught error at m=",m);
-  console.log("last index in transmission array:",transmission.length-1);
-  // throwing an error because max m is 106 and highest transmission index is 104
-}
+      for (m=0; m < vehicle.length; m++) {
+
+        var vehicleObj = JSON.parse(vehicle[m].getAttribute("data-js-vehicle-row"));  // parse data from custom attribute
+        // console.log("vm_id:",vehicle[m].id);
+        console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
+        console.log("stock type:",vehicleObj.stockType);
+
+        var secondary = vehicle[m].children.item(1).children.item(0).innerHTML; // class="secondary"
+        var year = sliceIt(secondary,"modelYearSort");
+        var name = sliceIt(secondary,"mmtSort");  // e.g. "BMW 328i xDrive"
+
+        console.log("Year:",year);
+        console.log("Name:",name);
+
+        var description = vehicle[m].children.item(1).children.item(1).innerHTML;
+        var extColor = sliceIt(description,"exteriorColorSort");
+        var transmission = sliceIt(description,"transmissionSort");
+        var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
+
+        console.log("Color:",extColor);
+        console.log("Trans:",transmission);
+        console.log("Snoopy:",snoopy);
+
+        var col8alignright = vehicle[m].children.item(2).children.item(2).innerHTML
+        // console.log("col8alignright:",col8alignright);
+        var mileage = sliceIt(col8alignright,"milesSort").replace(",","").replace(" mi.","");
+
+        console.log("mileage:",mileage);
+
+        function sliceIt(wholeString,searchString) {
+          var startPos = wholeString.indexOf(searchString) + searchString.length + 2;
+          var endPos = wholeString.indexOf("<",startPos);
+          if (wholeString.indexOf(searchString) >= 0) {  // was searchString found in wholeString?
+            return wholeString.slice(startPos,endPos);
+          } else {
+            return "***NOT FOUND***";
+          }
+        }
       }
-      console.log(results);
-      localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
-      rg = results;  // assign local results variable to global results variable
+    }
+  }
+}
+
+
+
+//        if (stype !== "New") { // we only want used
+//   try{
+//           results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
+//                           year:myear[m].innerHTML,
+//                           color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
+//                           desc:mmt[m].innerHTML,
+//                           transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
+//                           mileage:mileage[m].innerHTML.replace(",","").slice(0,-4) || "***",  // lop off " mi."
+//                           price:price[m].innerHTML.replace("$","").replace(",","") } );
+// //        }
+// } catch(err) {
+//   console.log("caught error at m=",m);
+//   console.log("last index in transmission array:",transmission.length-1);
+//   // throwing an error because max m is 106 and highest transmission index is 104
+
+
+
+// }
+//       }
+//       console.log(results);
+//       localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
+//       rg = results;  // assign local results variable to global results variable
 //      window.location.pathname = "display_results.html";  // open new HTML page
 
-    }  // end function
-  }  // end if
-}  // end function
 ///////////////////////////
 function makeYearString(yearLowId,yearHighId) {
   var yrLow, yrHigh, yrStringForURL = "";
