@@ -990,6 +990,7 @@ var carsArray = [
 
 var modelYear = {"1968":20125, "1969":20181, "1970":20126, "1971":20182, "1972":20127, "1973":20183, "1974":20128, "1975":20184, "1976":20129, "1977":20185, "1978":20130, "1979":20186, "1980":20131, "1981":20187, "1982":20132, "1983":20188, "1984":20133, "1985":20189, "1986":20134, "1987":20190, "1988":20135, "1989":20191, "1990":20136, "1991":20192, "1992":20137, "1993":20193, "1994":20138, "1995":20194, "1996":20139, "1997":20195, "1998":20140, "1999":20196, "2000":20141, "2001":20197, "2002":20142, "2003":20198, "2004":20143, "2005":20199, "2006":20144, "2007":20200, "2008":20145, "2009":20201, "2010":27381, "2011":34923, "2012":39723, "2013":47272, "2014":51683, "2015":56007, "2016":58487, "2017":30031936 };
 
+// get elements from form
 var zipcode =       document.getElementById("zip");
 var radius =        document.getElementById("radius");
 var inputMake =     document.getElementById("make_0");
@@ -1040,7 +1041,7 @@ function fooFunction() {
   // note: to search for a vehicle by ID, use the ID number as a keyword
 
   console.log("built URL string:",urlString);
-
++
   doCORSRequest({method:'GET',url:urlString,data:""});
 }
 ///////////////////////////
@@ -1053,17 +1054,13 @@ function doCORSRequest(options) {
   x.send(options.data);                                //note syntax for x.send
   x.onload = function() {  // upon onload, do this function
     if ( (x.readyState === x.DONE) && (x.status === 200) ) {
-      outputField.innerHTML = x.response;
-      // process results
+      outputField.innerHTML = x.response; // this makes response accessible thru DOM
 
+      // process results
       for (m=0; m < vehicle.length; m++) {
-try {
-        var vehicleObj = JSON.parse(vehicle[m].getAttribute("data-js-vehicle-row"));  // parse data from custom attribute
-} 
-catch (excption) {
-  console.log("JSON parse error at m=",m);
-}
-        // console.log("vm_id:",vehicle[m].id);
+        var vehicleObjAsString = vehicle[m].getAttribute("data-js-vehicle-row"); // grab custom attribute
+        vehicleObjAsString = vehicleObjAsString.replace(/:,/g, ':"NR",'); // fix any non-compliant null values
+        var vehicleObj = JSON.parse(vehicleObjAsString); // parse data from string into object
         console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
         console.log("stock type:",vehicleObj.stockType);
 
@@ -1097,7 +1094,6 @@ catch (excption) {
                         mileage:mileage,
                         price:vehicleObj.price } );
       } // end for m
-      console.log("hola");
       localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
       rg = results;  // assign local results variable to global results variable
       window.location.pathname = "display_results.html";  // open new HTML page
