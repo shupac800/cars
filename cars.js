@@ -319,11 +319,11 @@ var carsArray = [
 {make:'Ferrari',mkId:'20014',model:'F50',mdId:'21121'},
 {make:'Ferrari',mkId:'20014',model:'FF',mdId:'42703'},
 {make:'Ferrari',mkId:'20014',model:'Superamerica',mdId:'22140'},
-{make:'FIAT',mkId:'20060',model:'500',mdId:'20483'},
-{make:'FIAT',mkId:'20060',model:'500C',mdId:'43523'},
-{make:'FIAT',mkId:'20060',model:'500e',mdId:'53260'},
-{make:'FIAT',mkId:'20060',model:'500L',mdId:'51868'},
-{make:'FIAT',mkId:'20060',model:'500X',mdId:'58488'},
+{make:'Fiat',mkId:'20060',model:'500',mdId:'20483'},
+{make:'Fiat',mkId:'20060',model:'500C',mdId:'43523'},
+{make:'Fiat',mkId:'20060',model:'500e',mdId:'53260'},
+{make:'Fiat',mkId:'20060',model:'500L',mdId:'51868'},
+{make:'Fiat',mkId:'20060',model:'500X',mdId:'58488'},
 {make:'Fisker',mkId:'41703',model:'Karma',mdId:'41704'},
 {make:'Ford',mkId:'20015',model:'C-Max Energi',mdId:'50243'},
 {make:'Ford',mkId:'20015',model:'C-Max Hybrid',mdId:'49085'},
@@ -720,21 +720,21 @@ var carsArray = [
 {make:'Mercury',mkId:'20074',model:'Mystique',mdId:'21714'},
 {make:'Mercury',mkId:'20074',model:'Sable',mdId:'21944'},
 {make:'Mercury',mkId:'20074',model:'Villager',mdId:'22280'},
-{make:'MINI',mkId:'20075',model:'Clubman',mdId:'53149,38203,20855,20857'},
-{make:'MINI',mkId:'20075',model:'  - Clubman',mdId:'38203'},
-{make:'MINI',mkId:'20075',model:'  - Cooper Clubman',mdId:'20855'},
-{make:'MINI',mkId:'20075',model:'  - Cooper S Clubman',mdId:'20857'},
-{make:'MINI',mkId:'20075',model:'Convertible',mdId:'51005'},
-{make:'MINI',mkId:'20075',model:'Cooper',mdId:'20872'},
-{make:'MINI',mkId:'20075',model:'Cooper S',mdId:'20874'},
-{make:'MINI',mkId:'20075',model:'Countryman',mdId:'53148,41883,41884,36083'},
-{make:'MINI',mkId:'20075',model:'  - Cooper Countryman',mdId:'41883'},
-{make:'MINI',mkId:'20075',model:'  - Cooper S Countryman',mdId:'41884'},
-{make:'MINI',mkId:'20075',model:'  - Countryman',mdId:'36083'},
-{make:'MINI',mkId:'20075',model:'Coupe',mdId:'20891'},
-{make:'MINI',mkId:'20075',model:'Hardtop',mdId:'51006'},
-{make:'MINI',mkId:'20075',model:'Paceman',mdId:'51887'},
-{make:'MINI',mkId:'20075',model:'Roadster',mdId:'21834'},
+{make:'Mini',mkId:'20075',model:'Clubman',mdId:'53149,38203,20855,20857'},
+{make:'Mini',mkId:'20075',model:'  - Clubman',mdId:'38203'},
+{make:'Mini',mkId:'20075',model:'  - Cooper Clubman',mdId:'20855'},
+{make:'Mini',mkId:'20075',model:'  - Cooper S Clubman',mdId:'20857'},
+{make:'Mini',mkId:'20075',model:'Convertible',mdId:'51005'},
+{make:'Mini',mkId:'20075',model:'Cooper',mdId:'20872'},
+{make:'Mini',mkId:'20075',model:'Cooper S',mdId:'20874'},
+{make:'Mini',mkId:'20075',model:'Countryman',mdId:'53148,41883,41884,36083'},
+{make:'Mini',mkId:'20075',model:'  - Cooper Countryman',mdId:'41883'},
+{make:'Mini',mkId:'20075',model:'  - Cooper S Countryman',mdId:'41884'},
+{make:'Mini',mkId:'20075',model:'  - Countryman',mdId:'36083'},
+{make:'Mini',mkId:'20075',model:'Coupe',mdId:'20891'},
+{make:'Mini',mkId:'20075',model:'Hardtop',mdId:'51006'},
+{make:'Mini',mkId:'20075',model:'Paceman',mdId:'51887'},
+{make:'Mini',mkId:'20075',model:'Roadster',mdId:'21834'},
 {make:'Mitsubishi',mkId:'20030',model:'Diamante',mdId:'21011'},
 {make:'Mitsubishi',mkId:'20030',model:'Eclipse',mdId:'21037'},
 {make:'Mitsubishi',mkId:'20030',model:'Endeavor',mdId:'21060'},
@@ -990,6 +990,7 @@ var carsArray = [
 
 var modelYear = {"1968":20125, "1969":20181, "1970":20126, "1971":20182, "1972":20127, "1973":20183, "1974":20128, "1975":20184, "1976":20129, "1977":20185, "1978":20130, "1979":20186, "1980":20131, "1981":20187, "1982":20132, "1983":20188, "1984":20133, "1985":20189, "1986":20134, "1987":20190, "1988":20135, "1989":20191, "1990":20136, "1991":20192, "1992":20137, "1993":20193, "1994":20138, "1995":20194, "1996":20139, "1997":20195, "1998":20140, "1999":20196, "2000":20141, "2001":20197, "2002":20142, "2003":20198, "2004":20143, "2005":20199, "2006":20144, "2007":20200, "2008":20145, "2009":20201, "2010":27381, "2011":34923, "2012":39723, "2013":47272, "2014":51683, "2015":56007, "2016":58487, "2017":30031936 };
 
+// get elements from form
 var zipcode =       document.getElementById("zip");
 var radius =        document.getElementById("radius");
 var inputMake =     document.getElementById("make_0");
@@ -1000,14 +1001,8 @@ var keyword =       document.getElementById("keyword");
 
 var outputField =   document.getElementById("output");
 
-var rv = document.getElementsByClassName("row vehicle");  // array with all results on page
-var stype = document.getElementsByClassName("stocktypesort"); // "New" or ""
-var myear = document.getElementsByClassName("modelYearSort"); // array with all model years
-var ext_color = document.getElementsByClassName("exteriorColorSort"); // array with all ext colors
-var mmt = document.getElementsByClassName("mmtSort"); // array with all descriptions
-var transmission = document.getElementsByClassName("transmissionSort"); // array with all transmission types
-var price = document.getElementsByClassName("priceSort"); // array with all prices
-var mileage = document.getElementsByClassName("milesSort"); // array with all mileages
+var vehicle = document.getElementsByClassName("vehicle");  // array with all results on page
+document.registerElement("data-js-vehicle-row");
 
 var rg = [];  // results (global); for use with console
 
@@ -1046,47 +1041,91 @@ function fooFunction() {
   // note: to search for a vehicle by ID, use the ID number as a keyword
 
   console.log("built URL string:",urlString);
-
++
   doCORSRequest({method:'GET',url:urlString,data:""});
 }
 ///////////////////////////
 function doCORSRequest(options) {
   var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+  var results = [];
 
   var x = new XMLHttpRequest();
   x.open(options.method, cors_api_url + options.url);  //note syntax for x.open
   x.send(options.data);                                //note syntax for x.send
   x.onload = function() {  // upon onload, do this function
     if ( (x.readyState === x.DONE) && (x.status === 200) ) {
-      outputField.innerHTML = x.response;
-      // process results
-      var results = [];
+      outputField.innerHTML = x.response; // this makes response accessible thru DOM
 
-      for (m=0; m < rv.length; m++) {
-//        if (stype !== "New") { // we only want used
-  try{
-          results.push( { id:rv[m].id.substr(3),        // lop off leading "vm_"
-                          year:myear[m].innerHTML,
-                          color:ext_color[m].innerHTML.slice(0,ext_color[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-                          desc:mmt[m].innerHTML,
-                          transmission:transmission[m].innerHTML.slice(0,transmission[m].innerHTML.indexOf("<")) || "", // lop off trailing tags
-                          mileage:mileage[m].innerHTML.replace(",","").slice(0,-4) || "***",  // lop off " mi."
-                          price:price[m].innerHTML.replace("$","").replace(",","") } );
-//        }
-} catch(err) {
-  console.log("caught error at m=",m);
-  console.log("last index in transmission array:",transmission.length-1);
-  // throwing an error because max m is 106 and highest transmission index is 104
-}
-      }
-      console.log(results);
+      // process results
+      for (m=0; m < vehicle.length; m++) {
+        var vehicleObjAsString = vehicle[m].getAttribute("data-js-vehicle-row"); // grab custom attribute
+        vehicleObjAsString = vehicleObjAsString.replace(/:,/g, ':"NR",'); // fix any non-compliant null values
+        var vehicleObj = JSON.parse(vehicleObjAsString); // parse data from string into object
+        console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
+        console.log("stock type:",vehicleObj.stockType);
+
+        var secondary = vehicle[m].children.item(1).children.item(0).innerHTML; // class="secondary"
+        var year = sliceIt(secondary,"modelYearSort");
+        var name = sliceIt(secondary,"mmtSort");  // e.g. "BMW 328i xDrive"
+
+        console.log("Year:",year);
+        console.log("Name:",name);
+
+        var description = vehicle[m].children.item(1).children.item(1).innerHTML;
+        var extColor = sliceIt(description,"exteriorColorSort");
+        var transmission = sliceIt(description,"transmissionSort");
+        // var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
+
+        console.log("Color:",extColor);
+        console.log("Trans:",transmission);
+        // console.log("Snoopy:",snoopy);
+
+        var col8alignright = vehicle[m].children.item(2).children.item(2).innerHTML
+        // console.log("col8alignright:",col8alignright);
+        var mileage = sliceIt(col8alignright,"milesSort").replace(",","").replace(" mi.","");
+
+        console.log("mileage:",mileage);
+
+        results.push( { id:vehicleObj.listingId,
+                        year:year,
+                        color:extColor,
+                        desc:name,
+                        transmission:transmission,
+                        mileage:mileage,
+                        price:vehicleObj.price } );
+      } // end for m
       localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
       rg = results;  // assign local results variable to global results variable
-//      window.location.pathname = "display_results.html";  // open new HTML page
+      window.location.pathname = "display_results.html";  // open new HTML page
+    } // end if
+  } // end onload function
+} // end function doCORSRequest
 
-    }  // end function
-  }  // end if
-}  // end function
+function sliceIt(wholeString,searchString) {
+  var startPos = wholeString.indexOf(searchString) + searchString.length + 2;
+  var endPos = wholeString.indexOf("<",startPos);
+  if (wholeString.indexOf(searchString) >= 0) {  // was searchString found in wholeString?
+    return wholeString.slice(startPos,endPos);
+  } else {
+    return "***NOT FOUND***";
+  }
+}
+
+
+//        if (stype !== "New") { // we only want used
+//   try{
+// //        }
+// } catch(err) {
+//   console.log("caught error at m=",m);
+//   console.log("last index in transmission array:",transmission.length-1);
+//   // throwing an error because max m is 106 and highest transmission index is 104
+
+
+
+// }
+//       }
+//       console.log(results);
+
 ///////////////////////////
 function makeYearString(yearLowId,yearHighId) {
   var yrLow, yrHigh, yrStringForURL = "";
