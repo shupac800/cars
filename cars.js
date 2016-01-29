@@ -1096,7 +1096,7 @@ function doCORSRequest(options) {
       } // end for m
       localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
       rg = results;  // assign local results variable to global results variable
-      window.location.pathname = "display_results.html";  // open new HTML page
+      window.location.pathname = "/display_results.html";  // open new HTML page
     } // end if
   } // end onload function
 } // end function doCORSRequest
