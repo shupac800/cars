@@ -57,7 +57,12 @@ function fill_table(car) {
   outputHTML += "<span class='cell-desc'>"+car.desc.slice(0,30)+"</span>";
   outputHTML += "<span class='cell-mile'>"+car.mileage+"</span>";
   outputHTML += "<span class='cell-price'>"+car.price+"</span>";
-  outputHTML += "<span class='cell-ratio'>$"+(car.price/car.mileage).toFixed(2)+"</span>";
+  //only show price per mile if car has more than 5000 miles
+  if (car.mileage > 5000){
+    outputHTML += "<span class='cell-ratio'>$"+(car.price/car.mileage).toFixed(2)+"</span>";
+  } else {
+    outputHTML += "<span class='cell-ratio'>-</span>";
+  }
 
 
   newNode.innerHTML = outputHTML;
