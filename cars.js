@@ -1,1032 +1,64 @@
 // BEGIN GLOBALS
-var carsArray = [
-{make:'Acura',mkId:'20001',model:'CL',mdId:'20773'},
-{make:'Acura',mkId:'20001',model:'ILX',mdId:'47843'},
-{make:'Acura',mkId:'20001',model:'ILX Hybrid',mdId:'48964'},
-{make:'Acura',mkId:'20001',model:'Integra',mdId:'21266'},
-{make:'Acura',mkId:'20001',model:'MDX',mdId:'21422'},
-{make:'Acura',mkId:'20001',model:'NSX',mdId:'21685'},
-{make:'Acura',mkId:'20001',model:'RDX',mdId:'21831'},
-{make:'Acura',mkId:'20001',model:'RL',mdId:'21782'},
-{make:'Acura',mkId:'20001',model:'RLX',mdId:'51867'},
-{make:'Acura',mkId:'20001',model:'RLX Sport Hybrid',mdId:'58167'},
-{make:'Acura',mkId:'20001',model:'RSX',mdId:'21784'},
-{make:'Acura',mkId:'20001',model:'TL',mdId:'22237'},
-{make:'Acura',mkId:'20001',model:'TLX',mdId:'57287'},
-{make:'Acura',mkId:'20001',model:'TSX',mdId:'22248'},
-{make:'Acura',mkId:'20001',model:'ZDX',mdId:'32888'},
-{make:'Alfa Romeo',mkId:'20047',model:'4C',mdId:'57327'},
-{make:'Alfa Romeo',mkId:'20047',model:'4C Spider',mdId:'30021900'},
-{make:'Alfa Romeo',mkId:'20047',model:'8c Competizione',mdId:'34963'},
-{make:'Am General',mkId:'20002',model:'Hummer',mdId:'21235'},
-{make:'Aston Martin',mkId:'20003',model:'DB AR1 Zagato',mdId:'46643'},
-{make:'Aston Martin',mkId:'20003',model:'DB7',mdId:'20961'},
-{make:'Aston Martin',mkId:'20003',model:'DB7 Vantage',mdId:'20955'},
-{make:'Aston Martin',mkId:'20003',model:'DB9',mdId:'20967'},
-{make:'Aston Martin',mkId:'20003',model:'DBS',mdId:'20957'},
-{make:'Aston Martin',mkId:'20003',model:'Rapide',mdId:'37363'},
-{make:'Aston Martin',mkId:'20003',model:'Rapide S',mdId:'53259'},
-{make:'Aston Martin',mkId:'20003',model:'V12 Vanquish',mdId:'22247'},
-{make:'Aston Martin',mkId:'20003',model:'V12 Vantage',mdId:'40743'},
-{make:'Aston Martin',mkId:'20003',model:'V12 Vantage S',mdId:'57988'},
-{make:'Aston Martin',mkId:'20003',model:'V8 Vantage',mdId:'22253'},
-{make:'Aston Martin',mkId:'20003',model:'V8 Vantage S',mdId:'47110'},
-{make:'Aston Martin',mkId:'20003',model:'Vanquish',mdId:'52728'},
-{make:'Aston Martin',mkId:'20003',model:'Vantage',mdId:'22266'},
-{make:'Aston Martin',mkId:'20003',model:'Vantage GT',mdId:'30002548'},
-{make:'Aston Martin',mkId:'20003',model:'Virage',mdId:'22282'},
-{make:'Audi',mkId:'20049',model:'A3',mdId:'20591'},
-{make:'Audi',mkId:'20049',model:'A3 e-tron',mdId:'30026257'},
-{make:'Audi',mkId:'20049',model:'A4',mdId:'20596'},
-{make:'Audi',mkId:'20049',model:'A5',mdId:'20593'},
-{make:'Audi',mkId:'20049',model:'A6',mdId:'20598'},
-{make:'Audi',mkId:'20049',model:'A7',mdId:'43143'},
-{make:'Audi',mkId:'20049',model:'A8',mdId:'20595'},
-{make:'Audi',mkId:'20049',model:'allroad',mdId:'22398'},
-{make:'Audi',mkId:'20049',model:'Q3',mdId:'56290'},
-{make:'Audi',mkId:'20049',model:'Q5',mdId:'27681'},
-{make:'Audi',mkId:'20049',model:'Q5 hybrid',mdId:'50823'},
-{make:'Audi',mkId:'20049',model:'Q7',mdId:'21759'},
-{make:'Audi',mkId:'20049',model:'R8',mdId:'21778'},
-{make:'Audi',mkId:'20049',model:'RS 4',mdId:'21783'},
-{make:'Audi',mkId:'20049',model:'RS 5',mdId:'47273'},
-{make:'Audi',mkId:'20049',model:'RS 7',mdId:'54467'},
-{make:'Audi',mkId:'20049',model:'RS6',mdId:'21835'},
-{make:'Audi',mkId:'20049',model:'S3',mdId:'21855'},
-{make:'Audi',mkId:'20049',model:'S4',mdId:'21912'},
-{make:'Audi',mkId:'20049',model:'S5',mdId:'21914'},
-{make:'Audi',mkId:'20049',model:'S6',mdId:'21859'},
-{make:'Audi',mkId:'20049',model:'S7',mdId:'21862'},
-{make:'Audi',mkId:'20049',model:'S8',mdId:'21863'},
-{make:'Audi',mkId:'20049',model:'SQ5',mdId:'53787'},
-{make:'Audi',mkId:'20049',model:'TT',mdId:'22159'},
-{make:'Audi',mkId:'20049',model:'TT RS',mdId:'45283'},
-{make:'Audi',mkId:'20049',model:'TTS',mdId:'27461'},
-{make:'Avanti Motors',mkId:'20050',model:'Avanti',mdId:'20662'},
-{make:'Bentley',mkId:'20051',model:'Arnage',mdId:'20638'},
-{make:'Bentley',mkId:'20051',model:'Azure',mdId:'20668'},
-{make:'Bentley',mkId:'20051',model:'Bentayga',mdId:'33535058'},
-{make:'Bentley',mkId:'20051',model:'Brooklands',mdId:'20719'},
-{make:'Bentley',mkId:'20051',model:'Continental',mdId:'20849'},
-{make:'Bentley',mkId:'20051',model:'Continental Flying Spur',mdId:'20868'},
-{make:'Bentley',mkId:'20051',model:'Continental GT',mdId:'20851'},
-{make:'Bentley',mkId:'20051',model:'Continental GTC',mdId:'20870'},
-{make:'Bentley',mkId:'20051',model:'Continental Supersports',mdId:'31863'},
-{make:'Bentley',mkId:'20051',model:'Flying Spur',mdId:'53407'},
-{make:'Bentley',mkId:'20051',model:'Mulsanne',mdId:'21680'},
-{make:'Bentley',mkId:'20051',model:'R-Type',mdId:'21774'},
-{make:'BMW',mkId:'20005',model:'1-Series',mdId:'26661,43243,20281,20292'},
-{make:'BMW',mkId:'20005',model:'  - 1 Series M',mdId:'43243'},
-{make:'BMW',mkId:'20005',model:'  - 128',mdId:'20281'},
-{make:'BMW',mkId:'20005',model:'  - 135',mdId:'20292'},
-{make:'BMW',mkId:'20005',model:'228',mdId:'20321'},
-{make:'BMW',mkId:'20005',model:'3-Series',mdId:'26641,20406,20443,20408,20444,54409,54812,20409,20445,54410,21392'},
-{make:'BMW',mkId:'20005',model:'  - 320',mdId:'20406'},
-{make:'BMW',mkId:'20005',model:'  - 323',mdId:'20443'},
-{make:'BMW',mkId:'20005',model:'  - 325',mdId:'20408'},
-{make:'BMW',mkId:'20005',model:'  - 328',mdId:'20444'},
-{make:'BMW',mkId:'20005',model:'  - 328 Gran Turismo',mdId:'54409'},
-{make:'BMW',mkId:'20005',model:'  - 328d',mdId:'54812'},
-{make:'BMW',mkId:'20005',model:'  - 330',mdId:'20409'},
-{make:'BMW',mkId:'20005',model:'  - 335',mdId:'20445'},
-{make:'BMW',mkId:'20005',model:'  - 335 Gran Turismo',mdId:'54410'},
-{make:'BMW',mkId:'20005',model:'  - M3',mdId:'21392'},
-{make:'BMW',mkId:'20005',model:'330e',mdId:'33797688'},
-{make:'BMW',mkId:'20005',model:'340',mdId:'20411'},
-{make:'BMW',mkId:'20005',model:'4-Series',mdId:'54808,20434,57268,54807,57267,56127'},
-{make:'BMW',mkId:'20005',model:'  - 428',mdId:'20434'},
-{make:'BMW',mkId:'20005',model:'  - 428 Gran Coupe',mdId:'57268'},
-{make:'BMW',mkId:'20005',model:'  - 435',mdId:'54807'},
-{make:'BMW',mkId:'20005',model:'  - 435 Gran Coupe',mdId:'57267'},
-{make:'BMW',mkId:'20005',model:'  - M4',mdId:'56127'},
-{make:'BMW',mkId:'20005',model:'5-Series',mdId:'26662,20470,20496,20498,20500,36963,54811,20502,20481,20487,35050,21396'},
-{make:'BMW',mkId:'20005',model:'  - 525',mdId:'20470'},
-{make:'BMW',mkId:'20005',model:'  - 528',mdId:'20496'},
-{make:'BMW',mkId:'20005',model:'  - 530',mdId:'20498'},
-{make:'BMW',mkId:'20005',model:'  - 535',mdId:'20500'},
-{make:'BMW',mkId:'20005',model:'  - 535 Gran Turismo',mdId:'36963'},
-{make:'BMW',mkId:'20005',model:'  - 535d',mdId:'54811'},
-{make:'BMW',mkId:'20005',model:'  - 540',mdId:'20502'},
-{make:'BMW',mkId:'20005',model:'  - 545',mdId:'20481'},
-{make:'BMW',mkId:'20005',model:'  - 550',mdId:'20487'},
-{make:'BMW',mkId:'20005',model:'  - 550 Gran Turismo',mdId:'35050'},
-{make:'BMW',mkId:'20005',model:'  - M5',mdId:'21396'},
-{make:'BMW',mkId:'20005',model:'6-Series',mdId:'26875,20513,48064,20524,20515,49763,21420'},
-{make:'BMW',mkId:'20005',model:'  - 640',mdId:'20513'},
-{make:'BMW',mkId:'20005',model:'  - 640 Gran Coupe',mdId:'48064'},
-{make:'BMW',mkId:'20005',model:'  - 645',mdId:'20524'},
-{make:'BMW',mkId:'20005',model:'  - 650',mdId:'20515'},
-{make:'BMW',mkId:'20005',model:'  - 650 Gran Coupe',mdId:'49763'},
-{make:'BMW',mkId:'20005',model:'  - M6',mdId:'21420'},
-{make:'BMW',mkId:'20005',model:'7-Series',mdId:'26876,20539,20534,20536,20538,35923,20625'},
-{make:'BMW',mkId:'20005',model:'  - 740',mdId:'20539'},
-{make:'BMW',mkId:'20005',model:'  - 745',mdId:'20534'},
-{make:'BMW',mkId:'20005',model:'  - 750',mdId:'20536'},
-{make:'BMW',mkId:'20005',model:'  - 760',mdId:'20538'},
-{make:'BMW',mkId:'20005',model:'  - ActiveHybrid 750',mdId:'35923'},
-{make:'BMW',mkId:'20005',model:'  - Alpina B7',mdId:'20625'},
-{make:'BMW',mkId:'20005',model:'ActiveHybrid 3',mdId:'49843'},
-{make:'BMW',mkId:'20005',model:'ActiveHybrid 5',mdId:'47944'},
-{make:'BMW',mkId:'20005',model:'ActiveHybrid 7',mdId:'56187'},
-{make:'BMW',mkId:'20005',model:'ActiveHybrid 740',mdId:'49923'},
-{make:'BMW',mkId:'20005',model:'ALPINA B6 Gran Coupe',mdId:'57269'},
-{make:'BMW',mkId:'20005',model:'i3',mdId:'56067'},
-{make:'BMW',mkId:'20005',model:'i8',mdId:'56068'},
-{make:'BMW',mkId:'20005',model:'M-Series',mdId:'27701,43243,21388,56207,21392,56127,21396,21420,52547,32885,33023,22334'},
-{make:'BMW',mkId:'20005',model:'  - 1 Series M',mdId:'43243'},
-{make:'BMW',mkId:'20005',model:'  - M',mdId:'21388'},
-{make:'BMW',mkId:'20005',model:'  - M235',mdId:'56207'},
-{make:'BMW',mkId:'20005',model:'  - M3',mdId:'21392'},
-{make:'BMW',mkId:'20005',model:'  - M4',mdId:'56127'},
-{make:'BMW',mkId:'20005',model:'  - M5',mdId:'21396'},
-{make:'BMW',mkId:'20005',model:'  - M6',mdId:'21420'},
-{make:'BMW',mkId:'20005',model:'  - M6 Gran Coupe',mdId:'52547'},
-{make:'BMW',mkId:'20005',model:'  - X5 M',mdId:'32885'},
-{make:'BMW',mkId:'20005',model:'  - X6 M',mdId:'33023'},
-{make:'BMW',mkId:'20005',model:'  - Z4 M',mdId:'22334'},
-{make:'BMW',mkId:'20005',model:'X-Series',mdId:'33443,39483,48263,22310,56907,22378,32885,22312,33023'},
-{make:'BMW',mkId:'20005',model:'  - ActiveHybrid X6',mdId:'39483'},
-{make:'BMW',mkId:'20005',model:'  - X1',mdId:'48263'},
-{make:'BMW',mkId:'20005',model:'  - X3',mdId:'22310'},
-{make:'BMW',mkId:'20005',model:'  - X4',mdId:'56907'},
-{make:'BMW',mkId:'20005',model:'  - X5',mdId:'22378'},
-{make:'BMW',mkId:'20005',model:'  - X5 M',mdId:'32885'},
-{make:'BMW',mkId:'20005',model:'  - X6',mdId:'22312'},
-{make:'BMW',mkId:'20005',model:'  - X6 M',mdId:'33023'},
-{make:'BMW',mkId:'20005',model:'X5 eDrive',mdId:'30032858'},
-{make:'BMW',mkId:'20005',model:'Z3',mdId:'22333'},
-{make:'BMW',mkId:'20005',model:'Z4',mdId:'22395'},
-{make:'BMW',mkId:'20005',model:'Z8',mdId:'22396'},
-{make:'Bugatti',mkId:'33583',model:'Veyron',mdId:'55767'},
-{make:'Bugatti',mkId:'33583',model:'Veyron 16',mdId:'33603'},
-{make:'Buick',mkId:'20006',model:'Cascada',mdId:'30000872'},
-{make:'Buick',mkId:'20006',model:'Century',mdId:'20826'},
-{make:'Buick',mkId:'20006',model:'Enclave',mdId:'21058'},
-{make:'Buick',mkId:'20006',model:'Encore',mdId:'21071'},
-{make:'Buick',mkId:'20006',model:'LaCrosse',mdId:'21355'},
-{make:'Buick',mkId:'20006',model:'LeSabre',mdId:'21393'},
-{make:'Buick',mkId:'20006',model:'Lucerne',mdId:'21406'},
-{make:'Buick',mkId:'20006',model:'Park Avenue',mdId:'21713'},
-{make:'Buick',mkId:'20006',model:'Rainier',mdId:'21798'},
-{make:'Buick',mkId:'20006',model:'Regal',mdId:'21878'},
-{make:'Buick',mkId:'20006',model:'Rendezvous',mdId:'21883'},
-{make:'Buick',mkId:'20006',model:'Terraza',mdId:'22167'},
-{make:'Buick',mkId:'20006',model:'Verano',mdId:'46183'},
-{make:'Cadillac',mkId:'20052',model:'ATS',mdId:'47563'},
-{make:'Cadillac',mkId:'20052',model:'ATS-V',mdId:'30001954'},
-{make:'Cadillac',mkId:'20052',model:'Catera',mdId:'20789'},
-{make:'Cadillac',mkId:'20052',model:'CT6',mdId:'30003197'},
-{make:'Cadillac',mkId:'20052',model:'CTS',mdId:'20787'},
-{make:'Cadillac',mkId:'20052',model:'CTS-V',mdId:'30000964'},
-{make:'Cadillac',mkId:'20052',model:'DeVille',mdId:'20983'},
-{make:'Cadillac',mkId:'20052',model:'DTS',mdId:'20987'},
-{make:'Cadillac',mkId:'20052',model:'Eldorado',mdId:'21059'},
-{make:'Cadillac',mkId:'20052',model:'ELR',mdId:'52107'},
-{make:'Cadillac',mkId:'20052',model:'Escalade',mdId:'21081'},
-{make:'Cadillac',mkId:'20052',model:'Escalade ESV',mdId:'21066'},
-{make:'Cadillac',mkId:'20052',model:'Escalade EXT',mdId:'21086'},
-{make:'Cadillac',mkId:'20052',model:'Escalade Hybrid',mdId:'21068'},
-{make:'Cadillac',mkId:'20052',model:'Seville',mdId:'22080'},
-{make:'Cadillac',mkId:'20052',model:'SRX',mdId:'21887'},
-{make:'Cadillac',mkId:'20052',model:'STS',mdId:'21940'},
-{make:'Cadillac',mkId:'20052',model:'XLR',mdId:'22390'},
-{make:'Cadillac',mkId:'20052',model:'XTS',mdId:'47274'},
-{make:'Chevrolet',mkId:'20053',model:'2500',mdId:'20377'},
-{make:'Chevrolet',mkId:'20053',model:'3500',mdId:'20451'},
-{make:'Chevrolet',mkId:'20053',model:'Astro',mdId:'20650'},
-{make:'Chevrolet',mkId:'20053',model:'Avalanche',mdId:'20656'},
-{make:'Chevrolet',mkId:'20053',model:'Aveo',mdId:'20667'},
-{make:'Chevrolet',mkId:'20053',model:'Blazer',mdId:'20702'},
-{make:'Chevrolet',mkId:'20053',model:'Camaro',mdId:'20770'},
-{make:'Chevrolet',mkId:'20053',model:'Captiva Sport',mdId:'49403'},
-{make:'Chevrolet',mkId:'20053',model:'Cavalier',mdId:'20817'},
-{make:'Chevrolet',mkId:'20053',model:'City Express',mdId:'57447'},
-{make:'Chevrolet',mkId:'20053',model:'Classic',mdId:'20824'},
-{make:'Chevrolet',mkId:'20053',model:'Cobalt',mdId:'20854'},
-{make:'Chevrolet',mkId:'20053',model:'Colorado',mdId:'20856'},
-{make:'Chevrolet',mkId:'20053',model:'Corvette (all)',mdId:'30000861,20884,53075'},
-{make:'Chevrolet',mkId:'20053',model:'  - Corvette',mdId:'20884'},
-{make:'Chevrolet',mkId:'20053',model:'  - Corvette Stingray',mdId:'53075'},
-{make:'Chevrolet',mkId:'20053',model:'Cruze',mdId:'35026'},
-{make:'Chevrolet',mkId:'20053',model:'Cruze Limited',mdId:'30019417'},
-{make:'Chevrolet',mkId:'20053',model:'Equinox',mdId:'21065'},
-{make:'Chevrolet',mkId:'20053',model:'Express Vans',mdId:'27181,21109,26504,26508,22353'},
-{make:'Chevrolet',mkId:'20053',model:'  - Express 1500',mdId:'21109'},
-{make:'Chevrolet',mkId:'20053',model:'  - Express 2500',mdId:'26504'},
-{make:'Chevrolet',mkId:'20053',model:'  - Express 3500',mdId:'26508'},
-{make:'Chevrolet',mkId:'20053',model:'  - Van',mdId:'22353'},
-{make:'Chevrolet',mkId:'20053',model:'HHR',mdId:'21231'},
-{make:'Chevrolet',mkId:'20053',model:'Impala',mdId:'21291'},
-{make:'Chevrolet',mkId:'20053',model:'Impala Limited',mdId:'57087'},
-{make:'Chevrolet',mkId:'20053',model:'Lumina',mdId:'21385'},
-{make:'Chevrolet',mkId:'20053',model:'Malibu',mdId:'21413'},
-{make:'Chevrolet',mkId:'20053',model:'Malibu Classic',mdId:'21437'},
-{make:'Chevrolet',mkId:'20053',model:'Malibu Hybrid',mdId:'27361'},
-{make:'Chevrolet',mkId:'20053',model:'Malibu Limited',mdId:'30028443'},
-{make:'Chevrolet',mkId:'20053',model:'Malibu Maxx',mdId:'21415'},
-{make:'Chevrolet',mkId:'20053',model:'Metro',mdId:'21500'},
-{make:'Chevrolet',mkId:'20053',model:'Monte Carlo',mdId:'21703'},
-{make:'Chevrolet',mkId:'20053',model:'Pickup',mdId:'21775'},
-{make:'Chevrolet',mkId:'20053',model:'Prizm',mdId:'21797'},
-{make:'Chevrolet',mkId:'20053',model:'S-10',mdId:'21900'},
-{make:'Chevrolet',mkId:'20053',model:'Silverado Trucks',mdId:'27001,22061,22131,22128,22070'},
-{make:'Chevrolet',mkId:'20053',model:'  - Silverado 1500',mdId:'22061'},
-{make:'Chevrolet',mkId:'20053',model:'  - Silverado 1500 Hybrid',mdId:'22131'},
-{make:'Chevrolet',mkId:'20053',model:'  - Silverado 2500',mdId:'22128'},
-{make:'Chevrolet',mkId:'20053',model:'  - Silverado 3500',mdId:'22070'},
-{make:'Chevrolet',mkId:'20053',model:'Sonic',mdId:'42324'},
-{make:'Chevrolet',mkId:'20053',model:'Spark',mdId:'47275'},
-{make:'Chevrolet',mkId:'20053',model:'Spark EV',mdId:'53187'},
-{make:'Chevrolet',mkId:'20053',model:'SS',mdId:'52668'},
-{make:'Chevrolet',mkId:'20053',model:'SSR',mdId:'21938'},
-{make:'Chevrolet',mkId:'20053',model:'Suburban',mdId:'22124'},
-{make:'Chevrolet',mkId:'20053',model:'Tahoe',mdId:'22162'},
-{make:'Chevrolet',mkId:'20053',model:'Tahoe Hybrid',mdId:'22252'},
-{make:'Chevrolet',mkId:'20053',model:'Tracker',mdId:'22195'},
-{make:'Chevrolet',mkId:'20053',model:'TrailBlazer',mdId:'22197'},
-{make:'Chevrolet',mkId:'20053',model:'TrailBlazer EXT',mdId:'22292'},
-{make:'Chevrolet',mkId:'20053',model:'Traverse',mdId:'22296'},
-{make:'Chevrolet',mkId:'20053',model:'Trax',mdId:'57328'},
-{make:'Chevrolet',mkId:'20053',model:'Uplander',mdId:'22345'},
-{make:'Chevrolet',mkId:'20053',model:'Venture',mdId:'22270'},
-{make:'Chevrolet',mkId:'20053',model:'Volt',mdId:'35025'},
-{make:'Chrysler',mkId:'20008',model:'200',mdId:'20303'},
-{make:'Chrysler',mkId:'20008',model:'300',mdId:'20388'},
-{make:'Chrysler',mkId:'20008',model:'300C',mdId:'20394'},
-{make:'Chrysler',mkId:'20008',model:'300M',mdId:'20427'},
-{make:'Chrysler',mkId:'20008',model:'Aspen',mdId:'20648'},
-{make:'Chrysler',mkId:'20008',model:'Aspen Hybrid',mdId:'20647'},
-{make:'Chrysler',mkId:'20008',model:'Cirrus',mdId:'20822'},
-{make:'Chrysler',mkId:'20008',model:'Concorde',mdId:'20865'},
-{make:'Chrysler',mkId:'20008',model:'Crossfire',mdId:'20896'},
-{make:'Chrysler',mkId:'20008',model:'Grand Voyager',mdId:'21253'},
-{make:'Chrysler',mkId:'20008',model:'LHS',mdId:'21327'},
-{make:'Chrysler',mkId:'20008',model:'Pacifica',mdId:'21701'},
-{make:'Chrysler',mkId:'20008',model:'Prowler',mdId:'21801'},
-{make:'Chrysler',mkId:'20008',model:'PT Cruiser',mdId:'21744'},
-{make:'Chrysler',mkId:'20008',model:'Sebring',mdId:'21921'},
-{make:'Chrysler',mkId:'20008',model:'Town &amp; Country',mdId:'22191'},
-{make:'Chrysler',mkId:'20008',model:'Voyager',mdId:'22287'},
-{make:'Daewoo',mkId:'20009',model:'Lanos',mdId:'21370'},
-{make:'Daewoo',mkId:'20009',model:'Leganza',mdId:'21395'},
-{make:'Daewoo',mkId:'20009',model:'Nubira',mdId:'21732'},
-{make:'Dodge',mkId:'20012',model:'Avenger',mdId:'20663'},
-{make:'Dodge',mkId:'20012',model:'Caliber',mdId:'20794'},
-{make:'Dodge',mkId:'20012',model:'Caravan',mdId:'20783'},
-{make:'Dodge',mkId:'20012',model:'Challenger',mdId:'20807'},
-{make:'Dodge',mkId:'20012',model:'Charger',mdId:'20840'},
-{make:'Dodge',mkId:'20012',model:'Dakota',mdId:'20989'},
-{make:'Dodge',mkId:'20012',model:'Dart',mdId:'20991'},
-{make:'Dodge',mkId:'20012',model:'Durango',mdId:'21019'},
-{make:'Dodge',mkId:'20012',model:'Durango Hybrid',mdId:'21006'},
-{make:'Dodge',mkId:'20012',model:'Grand Caravan',mdId:'21249'},
-{make:'Dodge',mkId:'20012',model:'Intrepid',mdId:'21268'},
-{make:'Dodge',mkId:'20012',model:'Journey',mdId:'21286'},
-{make:'Dodge',mkId:'20012',model:'Magnum',mdId:'21411'},
-{make:'Dodge',mkId:'20012',model:'Neon',mdId:'21688'},
-{make:'Dodge',mkId:'20012',model:'Nitro',mdId:'21691'},
-{make:'Dodge',mkId:'20012',model:'Ram Trucks',mdId:'27041,21775,21858,21802,21860'},
-{make:'Dodge',mkId:'20012',model:'  - Pickup',mdId:'21775'},
-{make:'Dodge',mkId:'20012',model:'  - Ram 1500',mdId:'21858'},
-{make:'Dodge',mkId:'20012',model:'  - Ram 2500',mdId:'21802'},
-{make:'Dodge',mkId:'20012',model:'  - Ram 3500',mdId:'21860'},
-{make:'Dodge',mkId:'20012',model:'Ram Van',mdId:'21861'},
-{make:'Dodge',mkId:'20012',model:'Ram Wagon',mdId:'21804'},
-{make:'Dodge',mkId:'20012',model:'Sprinter',mdId:'22183'},
-{make:'Dodge',mkId:'20012',model:'SRT Viper',mdId:'51826'},
-{make:'Dodge',mkId:'20012',model:'Stratus',mdId:'22205'},
-{make:'Dodge',mkId:'20012',model:'Van',mdId:'22353'},
-{make:'Dodge',mkId:'20012',model:'Viper',mdId:'22363'},
-{make:'Ferrari',mkId:'20014',model:'360 Modena',mdId:'20420'},
-{make:'Ferrari',mkId:'20014',model:'360 Spider',mdId:'36544'},
-{make:'Ferrari',mkId:'20014',model:'456 GT',mdId:'20446'},
-{make:'Ferrari',mkId:'20014',model:'456 M',mdId:'20480'},
-{make:'Ferrari',mkId:'20014',model:'458 Italia',mdId:'40083'},
-{make:'Ferrari',mkId:'20014',model:'458 Speciale',mdId:'30002053'},
-{make:'Ferrari',mkId:'20014',model:'458 Spider',mdId:'48063'},
-{make:'Ferrari',mkId:'20014',model:'550 Barchetta',mdId:'20505'},
-{make:'Ferrari',mkId:'20014',model:'550 Maranello',mdId:'20489'},
-{make:'Ferrari',mkId:'20014',model:'575 M',mdId:'20491'},
-{make:'Ferrari',mkId:'20014',model:'599 GTB Fiorano',mdId:'20508'},
-{make:'Ferrari',mkId:'20014',model:'599 GTO',mdId:'51283'},
-{make:'Ferrari',mkId:'20014',model:'612 Scaglietti',mdId:'20501'},
-{make:'Ferrari',mkId:'20014',model:'California',mdId:'20768'},
-{make:'Ferrari',mkId:'20014',model:'Challenge Stradale',mdId:'20832'},
-{make:'Ferrari',mkId:'20014',model:'Enzo',mdId:'21077'},
-{make:'Ferrari',mkId:'20014',model:'F12berlinetta',mdId:'52427'},
-{make:'Ferrari',mkId:'20014',model:'F355',mdId:'21117'},
-{make:'Ferrari',mkId:'20014',model:'F430',mdId:'21119'},
-{make:'Ferrari',mkId:'20014',model:'F50',mdId:'21121'},
-{make:'Ferrari',mkId:'20014',model:'FF',mdId:'42703'},
-{make:'Ferrari',mkId:'20014',model:'Superamerica',mdId:'22140'},
-{make:'Fiat',mkId:'20060',model:'500',mdId:'20483'},
-{make:'Fiat',mkId:'20060',model:'500C',mdId:'43523'},
-{make:'Fiat',mkId:'20060',model:'500e',mdId:'53260'},
-{make:'Fiat',mkId:'20060',model:'500L',mdId:'51868'},
-{make:'Fiat',mkId:'20060',model:'500X',mdId:'58488'},
-{make:'Fisker',mkId:'41703',model:'Karma',mdId:'41704'},
-{make:'Ford',mkId:'20015',model:'C-Max Energi',mdId:'50243'},
-{make:'Ford',mkId:'20015',model:'C-Max Hybrid',mdId:'49085'},
-{make:'Ford',mkId:'20015',model:'Contour',mdId:'20853'},
-{make:'Ford',mkId:'20015',model:'Crown Victoria',mdId:'20906'},
-{make:'Ford',mkId:'20015',model:'Econoline Vans',mdId:'26882,21050,26506,26502,26507,22353'},
-{make:'Ford',mkId:'20015',model:'  - E150',mdId:'21050'},
-{make:'Ford',mkId:'20015',model:'  - E250',mdId:'26506'},
-{make:'Ford',mkId:'20015',model:'  - E350',mdId:'26502'},
-{make:'Ford',mkId:'20015',model:'  - E350 Super Duty',mdId:'26507'},
-{make:'Ford',mkId:'20015',model:'  - Van',mdId:'22353'},
-{make:'Ford',mkId:'20015',model:'Edge',mdId:'21039'},
-{make:'Ford',mkId:'20015',model:'Escape',mdId:'21088'},
-{make:'Ford',mkId:'20015',model:'Escape Hybrid',mdId:'21070'},
-{make:'Ford',mkId:'20015',model:'Escort',mdId:'21090'},
-{make:'Ford',mkId:'20015',model:'Excursion',mdId:'21102'},
-{make:'Ford',mkId:'20015',model:'Expedition (all)',mdId:'32623,21104,21085'},
-{make:'Ford',mkId:'20015',model:'  - Expedition',mdId:'21104'},
-{make:'Ford',mkId:'20015',model:'  - Expedition EL',mdId:'21085'},
-{make:'Ford',mkId:'20015',model:'Explorer',mdId:'21105'},
-{make:'Ford',mkId:'20015',model:'Explorer Sport',mdId:'21087'},
-{make:'Ford',mkId:'20015',model:'Explorer Sport Trac',mdId:'21107'},
-{make:'Ford',mkId:'20015',model:'F-Series Trucks',mdId:'26881,21095,21115,21097,21101,21775'},
-{make:'Ford',mkId:'20015',model:'  - F150',mdId:'21095'},
-{make:'Ford',mkId:'20015',model:'  - F250',mdId:'21115'},
-{make:'Ford',mkId:'20015',model:'  - F350',mdId:'21097'},
-{make:'Ford',mkId:'20015',model:'  - F450',mdId:'21101'},
-{make:'Ford',mkId:'20015',model:'  - Pickup',mdId:'21775'},
-{make:'Ford',mkId:'20015',model:'Fiesta',mdId:'21146'},
-{make:'Ford',mkId:'20015',model:'Five Hundred',mdId:'21156'},
-{make:'Ford',mkId:'20015',model:'Flex',mdId:'21136'},
-{make:'Ford',mkId:'20015',model:'Focus',mdId:'21138'},
-{make:'Ford',mkId:'20015',model:'Focus Electric',mdId:'42464'},
-{make:'Ford',mkId:'20015',model:'Focus RS',mdId:'30036452'},
-{make:'Ford',mkId:'20015',model:'Focus ST',mdId:'48704'},
-{make:'Ford',mkId:'20015',model:'Freestar',mdId:'21169'},
-{make:'Ford',mkId:'20015',model:'Freestyle',mdId:'21144'},
-{make:'Ford',mkId:'20015',model:'Fusion',mdId:'21175'},
-{make:'Ford',mkId:'20015',model:'Fusion Energi',mdId:'53027'},
-{make:'Ford',mkId:'20015',model:'Fusion Hybrid',mdId:'27661'},
-{make:'Ford',mkId:'20015',model:'GT',mdId:'21203'},
-{make:'Ford',mkId:'20015',model:'Mustang',mdId:'21712'},
-{make:'Ford',mkId:'20015',model:'Ranger',mdId:'21874'},
-{make:'Ford',mkId:'20015',model:'Sedan Police Interceptor',mdId:'57387'},
-{make:'Ford',mkId:'20015',model:'Shelby GT350',mdId:'30021281'},
-{make:'Ford',mkId:'20015',model:'Taurus',mdId:'22164'},
-{make:'Ford',mkId:'20015',model:'Taurus X',mdId:'22256'},
-{make:'Ford',mkId:'20015',model:'Thunderbird',mdId:'22263'},
-{make:'Ford',mkId:'20015',model:'Transit Connect',mdId:'28203'},
-{make:'Ford',mkId:'20015',model:'Transit-150',mdId:'56747'},
-{make:'Ford',mkId:'20015',model:'Transit-250',mdId:'56748'},
-{make:'Ford',mkId:'20015',model:'Transit-350',mdId:'56749'},
-{make:'Ford',mkId:'20015',model:'Utility Police Interceptor',mdId:'30032338'},
-{make:'Ford',mkId:'20015',model:'Windstar',mdId:'22375'},
-{make:'Ford',mkId:'20015',model:'ZX2',mdId:'22335'},
-{make:'GMC',mkId:'20061',model:'Acadia',mdId:'20607'},
-{make:'GMC',mkId:'20061',model:'Canyon',mdId:'20778'},
-{make:'GMC',mkId:'20061',model:'Envoy',mdId:'21062'},
-{make:'GMC',mkId:'20061',model:'Envoy XL',mdId:'21075'},
-{make:'GMC',mkId:'20061',model:'Envoy XUV',mdId:'21063'},
-{make:'GMC',mkId:'20061',model:'Jimmy',mdId:'21324'},
-{make:'GMC',mkId:'20061',model:'Safari',mdId:'21897'},
-{make:'GMC',mkId:'20061',model:'Savana Vans',mdId:'27201,21907,26509,26505,22353'},
-{make:'GMC',mkId:'20061',model:'  - Savana 1500',mdId:'21907'},
-{make:'GMC',mkId:'20061',model:'  - Savana 2500',mdId:'26509'},
-{make:'GMC',mkId:'20061',model:'  - Savana 3500',mdId:'26505'},
-{make:'GMC',mkId:'20061',model:'  - Van',mdId:'22353'},
-{make:'GMC',mkId:'20061',model:'Sierra Trucks',mdId:'27021,21775,22044,22109,22107,22045'},
-{make:'GMC',mkId:'20061',model:'  - Pickup',mdId:'21775'},
-{make:'GMC',mkId:'20061',model:'  - Sierra 1500',mdId:'22044'},
-{make:'GMC',mkId:'20061',model:'  - Sierra 1500 Hybrid',mdId:'22109'},
-{make:'GMC',mkId:'20061',model:'  - Sierra 2500',mdId:'22107'},
-{make:'GMC',mkId:'20061',model:'  - Sierra 3500',mdId:'22045'},
-{make:'GMC',mkId:'20061',model:'Sonoma',mdId:'22148'},
-{make:'GMC',mkId:'20061',model:'Terrain',mdId:'30003'},
-{make:'GMC',mkId:'20061',model:'Yukon',mdId:'22393'},
-{make:'GMC',mkId:'20061',model:'Yukon Hybrid',mdId:'22332'},
-{make:'GMC',mkId:'20061',model:'Yukon XL',mdId:'22394'},
-{make:'Honda',mkId:'20017',model:'Accord',mdId:'20606'},
-{make:'Honda',mkId:'20017',model:'Accord Crosstour',mdId:'34203'},
-{make:'Honda',mkId:'20017',model:'Accord Hybrid',mdId:'20611'},
-{make:'Honda',mkId:'20017',model:'Accord Plug-In Hybrid',mdId:'52227'},
-{make:'Honda',mkId:'20017',model:'Civic',mdId:'20823'},
-{make:'Honda',mkId:'20017',model:'Civic Hybrid',mdId:'20848'},
-{make:'Honda',mkId:'20017',model:'CR-V',mdId:'20762'},
-{make:'Honda',mkId:'20017',model:'CR-Z',mdId:'35363'},
-{make:'Honda',mkId:'20017',model:'Crosstour',mdId:'34743'},
-{make:'Honda',mkId:'20017',model:'Element',mdId:'21055'},
-{make:'Honda',mkId:'20017',model:'Fit',mdId:'21128'},
-{make:'Honda',mkId:'20017',model:'Fit EV',mdId:'47276'},
-{make:'Honda',mkId:'20017',model:'HR-V',mdId:'30000212'},
-{make:'Honda',mkId:'20017',model:'Insight',mdId:'21300'},
-{make:'Honda',mkId:'20017',model:'Odyssey',mdId:'21734'},
-{make:'Honda',mkId:'20017',model:'Passport',mdId:'21720'},
-{make:'Honda',mkId:'20017',model:'Pilot',mdId:'21729'},
-{make:'Honda',mkId:'20017',model:'Prelude',mdId:'21741'},
-{make:'Honda',mkId:'20017',model:'Ridgeline',mdId:'21884'},
-{make:'Honda',mkId:'20017',model:'S2000',mdId:'21910'},
-{make:'Hummer',mkId:'20018',model:'H1',mdId:'21229'},
-{make:'Hummer',mkId:'20018',model:'H1 Alpha',mdId:'21257'},
-{make:'Hummer',mkId:'20018',model:'H2',mdId:'21230'},
-{make:'Hummer',mkId:'20018',model:'H3',mdId:'21258'},
-{make:'Hummer',mkId:'20018',model:'H3T',mdId:'26261'},
-{make:'Hyundai',mkId:'20064',model:'Accent',mdId:'20605'},
-{make:'Hyundai',mkId:'20064',model:'Azera',mdId:'20666'},
-{make:'Hyundai',mkId:'20064',model:'Elantra',mdId:'21053'},
-{make:'Hyundai',mkId:'20064',model:'Elantra GT',mdId:'49764'},
-{make:'Hyundai',mkId:'20064',model:'Elantra Touring',mdId:'27781'},
-{make:'Hyundai',mkId:'20064',model:'Entourage',mdId:'21073'},
-{make:'Hyundai',mkId:'20064',model:'Equus',mdId:'35963'},
-{make:'Hyundai',mkId:'20064',model:'Genesis',mdId:'21221'},
-{make:'Hyundai',mkId:'20064',model:'Genesis Coupe',mdId:'30263'},
-{make:'Hyundai',mkId:'20064',model:'Santa Fe',mdId:'21899'},
-{make:'Hyundai',mkId:'20064',model:'Santa Fe Sport',mdId:'50643'},
-{make:'Hyundai',mkId:'20064',model:'Sonata',mdId:'22146'},
-{make:'Hyundai',mkId:'20064',model:'Sonata Hybrid',mdId:'39583'},
-{make:'Hyundai',mkId:'20064',model:'Sonata Plug-In Hybrid',mdId:'33386193'},
-{make:'Hyundai',mkId:'20064',model:'Tiburon',mdId:'22264'},
-{make:'Hyundai',mkId:'20064',model:'Tucson',mdId:'22302'},
-{make:'Hyundai',mkId:'20064',model:'Veloster',mdId:'42323'},
-{make:'Hyundai',mkId:'20064',model:'Veracruz',mdId:'22272'},
-{make:'Hyundai',mkId:'20064',model:'XG300',mdId:'22381'},
-{make:'Hyundai',mkId:'20064',model:'XG350',mdId:'22317'},
-{make:'Infiniti',mkId:'20019',model:'EX35',mdId:'21046'},
-{make:'Infiniti',mkId:'20019',model:'EX37',mdId:'49584'},
-{make:'Infiniti',mkId:'20019',model:'FX (all)',mdId:'34063,21108,49585,21129,21110'},
-{make:'Infiniti',mkId:'20019',model:'  - FX35',mdId:'21108'},
-{make:'Infiniti',mkId:'20019',model:'  - FX37',mdId:'49585'},
-{make:'Infiniti',mkId:'20019',model:'  - FX45',mdId:'21129'},
-{make:'Infiniti',mkId:'20019',model:'  - FX50',mdId:'21110'},
-{make:'Infiniti',mkId:'20019',model:'G (all)',mdId:'34103,21151,38826,21179,21153'},
-{make:'Infiniti',mkId:'20019',model:'  - G20',mdId:'21151'},
-{make:'Infiniti',mkId:'20019',model:'  - G25',mdId:'38826'},
-{make:'Infiniti',mkId:'20019',model:'  - G35',mdId:'21179'},
-{make:'Infiniti',mkId:'20019',model:'  - G37',mdId:'21153'},
-{make:'Infiniti',mkId:'20019',model:'I (all)',mdId:'34123,21236,21279'},
-{make:'Infiniti',mkId:'20019',model:'  - I30',mdId:'21236'},
-{make:'Infiniti',mkId:'20019',model:'  - I35',mdId:'21279'},
-{make:'Infiniti',mkId:'20019',model:'IPL G',mdId:'49665'},
-{make:'Infiniti',mkId:'20019',model:'JX35',mdId:'47283'},
-{make:'Infiniti',mkId:'20019',model:'M (all)',mdId:'34083,21394,40845,35027,21418,35028'},
-{make:'Infiniti',mkId:'20019',model:'  - M35',mdId:'21394'},
-{make:'Infiniti',mkId:'20019',model:'  - M35h',mdId:'40845'},
-{make:'Infiniti',mkId:'20019',model:'  - M37',mdId:'35027'},
-{make:'Infiniti',mkId:'20019',model:'  - M45',mdId:'21418'},
-{make:'Infiniti',mkId:'20019',model:'  - M56',mdId:'35028'},
-{make:'Infiniti',mkId:'20019',model:'Q45',mdId:'21806'},
-{make:'Infiniti',mkId:'20019',model:'Q50',mdId:'52108'},
-{make:'Infiniti',mkId:'20019',model:'Q50 Hybrid',mdId:'52969'},
-{make:'Infiniti',mkId:'20019',model:'Q60',mdId:'54539'},
-{make:'Infiniti',mkId:'20019',model:'Q60 IPL',mdId:'54868'},
-{make:'Infiniti',mkId:'20019',model:'Q70',mdId:'54814'},
-{make:'Infiniti',mkId:'20019',model:'Q70h',mdId:'56611'},
-{make:'Infiniti',mkId:'20019',model:'Q70L',mdId:'58567'},
-{make:'Infiniti',mkId:'20019',model:'QX (all)',mdId:'34143,21808,54450,21760,54187,54413,54451'},
-{make:'Infiniti',mkId:'20019',model:'  - QX4',mdId:'21808'},
-{make:'Infiniti',mkId:'20019',model:'  - QX50',mdId:'54450'},
-{make:'Infiniti',mkId:'20019',model:'  - QX56',mdId:'21760'},
-{make:'Infiniti',mkId:'20019',model:'  - QX60',mdId:'54187'},
-{make:'Infiniti',mkId:'20019',model:'  - QX70',mdId:'54413'},
-{make:'Infiniti',mkId:'20019',model:'  - QX80',mdId:'54451'},
-{make:'Infiniti',mkId:'20019',model:'QX60 Hybrid',mdId:'52654'},
-{make:'International',mkId:'20065',model:'CXT',mdId:'20765'},
-{make:'International',mkId:'20065',model:'MXT',mdId:'21409'},
-{make:'International',mkId:'20065',model:'RXT',mdId:'21852'},
-{make:'Isuzu',mkId:'20020',model:'Amigo',mdId:'20635'},
-{make:'Isuzu',mkId:'20020',model:'Ascender',mdId:'20641'},
-{make:'Isuzu',mkId:'20020',model:'Axiom',mdId:'20665'},
-{make:'Isuzu',mkId:'20020',model:'Isuzu Trucks',mdId:'27702,21261,22399,22338,22400,22339'},
-{make:'Isuzu',mkId:'20020',model:'  - Hombre',mdId:'21261'},
-{make:'Isuzu',mkId:'20020',model:'  - i-280',mdId:'22399'},
-{make:'Isuzu',mkId:'20020',model:'  - i-290',mdId:'22338'},
-{make:'Isuzu',mkId:'20020',model:'  - i-350',mdId:'22400'},
-{make:'Isuzu',mkId:'20020',model:'  - i-370',mdId:'22339'},
-{make:'Isuzu',mkId:'20020',model:'Rodeo',mdId:'21892'},
-{make:'Isuzu',mkId:'20020',model:'Rodeo Sport',mdId:'21838'},
-{make:'Isuzu',mkId:'20020',model:'Trooper',mdId:'22211'},
-{make:'Isuzu',mkId:'20020',model:'VehiCROSS',mdId:'22268'},
-{make:'Jaguar',mkId:'20066',model:'F-Pace',mdId:'30032117'},
-{make:'Jaguar',mkId:'20066',model:'F-TYPE',mdId:'58107'},
-{make:'Jaguar',mkId:'20066',model:'S-Type',mdId:'21851'},
-{make:'Jaguar',mkId:'20066',model:'Super V8',mdId:'22138'},
-{make:'Jaguar',mkId:'20066',model:'Super V8 Portfolio',mdId:'22224'},
-{make:'Jaguar',mkId:'20066',model:'Vanden Plas',mdId:'22354'},
-{make:'Jaguar',mkId:'20066',model:'X-Type',mdId:'22308'},
-{make:'Jaguar',mkId:'20066',model:'XE',mdId:'58489'},
-{make:'Jaguar',mkId:'20066',model:'XF',mdId:'22315'},
-{make:'Jaguar',mkId:'20066',model:'XJ',mdId:'22382'},
-{make:'Jaguar',mkId:'20066',model:'XJ8',mdId:'22322'},
-{make:'Jaguar',mkId:'20066',model:'XJR',mdId:'22384'},
-{make:'Jaguar',mkId:'20066',model:'XK',mdId:'22324'},
-{make:'Jaguar',mkId:'20066',model:'XK8',mdId:'22326'},
-{make:'Jaguar',mkId:'20066',model:'XKR',mdId:'22327'},
-{make:'Jeep',mkId:'20021',model:'Cherokee',mdId:'20814'},
-{make:'Jeep',mkId:'20021',model:'Commander',mdId:'20860'},
-{make:'Jeep',mkId:'20021',model:'Compass',mdId:'20864'},
-{make:'Jeep',mkId:'20021',model:'Grand Cherokee',mdId:'21222'},
-{make:'Jeep',mkId:'20021',model:'Liberty',mdId:'21399'},
-{make:'Jeep',mkId:'20021',model:'Patriot',mdId:'21766'},
-{make:'Jeep',mkId:'20021',model:'Renegade',mdId:'56807'},
-{make:'Jeep',mkId:'20021',model:'Wrangler',mdId:'22306'},
-{make:'Jeep',mkId:'20021',model:'Wrangler Unlimited',mdId:'26381'},
-{make:'Kia',mkId:'20068',model:'Amanti',mdId:'20629'},
-{make:'Kia',mkId:'20068',model:'Borrego',mdId:'20711'},
-{make:'Kia',mkId:'20068',model:'Cadenza',mdId:'52087'},
-{make:'Kia',mkId:'20068',model:'Forte',mdId:'28323'},
-{make:'Kia',mkId:'20068',model:'Forte Koup',mdId:'32883'},
-{make:'Kia',mkId:'20068',model:'K900',mdId:'56013'},
-{make:'Kia',mkId:'20068',model:'Optima',mdId:'21740'},
-{make:'Kia',mkId:'20068',model:'Optima Hybrid',mdId:'40463'},
-{make:'Kia',mkId:'20068',model:'Rio',mdId:'21828'},
-{make:'Kia',mkId:'20068',model:'Rio5',mdId:'21885'},
-{make:'Kia',mkId:'20068',model:'Rondo',mdId:'21840'},
-{make:'Kia',mkId:'20068',model:'Sedona',mdId:'21970'},
-{make:'Kia',mkId:'20068',model:'Sephia',mdId:'21974'},
-{make:'Kia',mkId:'20068',model:'Sorento',mdId:'22084'},
-{make:'Kia',mkId:'20068',model:'Soul',mdId:'27761'},
-{make:'Kia',mkId:'20068',model:'Soul EV',mdId:'56687'},
-{make:'Kia',mkId:'20068',model:'Spectra',mdId:'22090'},
-{make:'Kia',mkId:'20068',model:'Spectra5',mdId:'22161'},
-{make:'Kia',mkId:'20068',model:'Sportage',mdId:'22095'},
-{make:'Koenigsegg',mkId:'33663',model:'CCX',mdId:'33664'},
-{make:'Lamborghini',mkId:'20069',model:'Aventador',mdId:'42843'},
-{make:'Lamborghini',mkId:'20069',model:'Diablo',mdId:'20994'},
-{make:'Lamborghini',mkId:'20069',model:'Gallardo',mdId:'21195'},
-{make:'Lamborghini',mkId:'20069',model:'Huracan',mdId:'56867'},
-{make:'Lamborghini',mkId:'20069',model:'Murcielago',mdId:'21683'},
-{make:'Land Rover',mkId:'20024',model:'Discovery',mdId:'20999'},
-{make:'Land Rover',mkId:'20024',model:'Discovery Sport',mdId:'58230'},
-{make:'Land Rover',mkId:'20024',model:'Freelander',mdId:'21143'},
-{make:'Land Rover',mkId:'20024',model:'LR2',mdId:'21360'},
-{make:'Land Rover',mkId:'20024',model:'LR3',mdId:'21335'},
-{make:'Land Rover',mkId:'20024',model:'LR4',mdId:'30004'},
-{make:'Land Rover',mkId:'20024',model:'Range Rover',mdId:'21872'},
-{make:'Land Rover',mkId:'20024',model:'Range Rover Evoque',mdId:'43403'},
-{make:'Land Rover',mkId:'20024',model:'Range Rover Sport',mdId:'21811'},
-{make:'Lexus',mkId:'20070',model:'CT 200h',mdId:'35964'},
-{make:'Lexus',mkId:'20070',model:'ES (all)',mdId:'34003,21025,48266,21044,21027'},
-{make:'Lexus',mkId:'20070',model:'  - ES 300',mdId:'21025'},
-{make:'Lexus',mkId:'20070',model:'  - ES 300h',mdId:'48266'},
-{make:'Lexus',mkId:'20070',model:'  - ES 330',mdId:'21044'},
-{make:'Lexus',mkId:'20070',model:'  - ES 350',mdId:'21027'},
-{make:'Lexus',mkId:'20070',model:'GS (all)',mdId:'33963,21168,21196,21170,21198,21172,21174'},
-{make:'Lexus',mkId:'20070',model:'  - GS 300',mdId:'21168'},
-{make:'Lexus',mkId:'20070',model:'  - GS 350',mdId:'21196'},
-{make:'Lexus',mkId:'20070',model:'  - GS 400',mdId:'21170'},
-{make:'Lexus',mkId:'20070',model:'  - GS 430',mdId:'21198'},
-{make:'Lexus',mkId:'20070',model:'  - GS 450h',mdId:'21172'},
-{make:'Lexus',mkId:'20070',model:'  - GS 460',mdId:'21174'},
-{make:'Lexus',mkId:'20070',model:'GS 200t',mdId:'30023412'},
-{make:'Lexus',mkId:'20070',model:'GS F',mdId:'30038753'},
-{make:'Lexus',mkId:'20070',model:'GX 460',mdId:'34883'},
-{make:'Lexus',mkId:'20070',model:'GX 470',mdId:'21213'},
-{make:'Lexus',mkId:'20070',model:'HS 250h',mdId:'27821'},
-{make:'Lexus',mkId:'20070',model:'IS (all)',mdId:'34023,21281,30465,21239,21289,30466,21241'},
-{make:'Lexus',mkId:'20070',model:'  - IS 250',mdId:'21281'},
-{make:'Lexus',mkId:'20070',model:'  - IS 250C',mdId:'30465'},
-{make:'Lexus',mkId:'20070',model:'  - IS 300',mdId:'21239'},
-{make:'Lexus',mkId:'20070',model:'  - IS 350',mdId:'21289'},
-{make:'Lexus',mkId:'20070',model:'  - IS 350C',mdId:'30466'},
-{make:'Lexus',mkId:'20070',model:'  - IS-F',mdId:'21241'},
-{make:'Lexus',mkId:'20070',model:'IS 200t',mdId:'30028219'},
-{make:'Lexus',mkId:'20070',model:'LFA',mdId:'35029'},
-{make:'Lexus',mkId:'20070',model:'LS (all)',mdId:'33943,21337,21363,21339,21364'},
-{make:'Lexus',mkId:'20070',model:'  - LS 400',mdId:'21337'},
-{make:'Lexus',mkId:'20070',model:'  - LS 430',mdId:'21363'},
-{make:'Lexus',mkId:'20070',model:'  - LS 460',mdId:'21339'},
-{make:'Lexus',mkId:'20070',model:'  - LS 600h L',mdId:'21364'},
-{make:'Lexus',mkId:'20070',model:'LX (all)',mdId:'34043,21353,21371'},
-{make:'Lexus',mkId:'20070',model:'  - LX 470',mdId:'21353'},
-{make:'Lexus',mkId:'20070',model:'  - LX 570',mdId:'21371'},
-{make:'Lexus',mkId:'20070',model:'NX 200t',mdId:'57887'},
-{make:'Lexus',mkId:'20070',model:'NX 300h',mdId:'57888'},
-{make:'Lexus',mkId:'20070',model:'RC 200t',mdId:'30034963'},
-{make:'Lexus',mkId:'20070',model:'RC 300',mdId:'30035060'},
-{make:'Lexus',mkId:'20070',model:'RC 350',mdId:'57928'},
-{make:'Lexus',mkId:'20070',model:'RC F',mdId:'56307'},
-{make:'Lexus',mkId:'20070',model:'RX (all)',mdId:'33923,21785,21839,21787,21841,27664'},
-{make:'Lexus',mkId:'20070',model:'  - RX 300',mdId:'21785'},
-{make:'Lexus',mkId:'20070',model:'  - RX 330',mdId:'21839'},
-{make:'Lexus',mkId:'20070',model:'  - RX 350',mdId:'21787'},
-{make:'Lexus',mkId:'20070',model:'  - RX 400h',mdId:'21841'},
-{make:'Lexus',mkId:'20070',model:'  - RX 450h',mdId:'27664'},
-{make:'Lexus',mkId:'20070',model:'SC (all)',mdId:'33983,21869,21925,21871'},
-{make:'Lexus',mkId:'20070',model:'  - SC 300',mdId:'21869'},
-{make:'Lexus',mkId:'20070',model:'  - SC 400',mdId:'21925'},
-{make:'Lexus',mkId:'20070',model:'  - SC 430',mdId:'21871'},
-{make:'Lincoln',mkId:'20025',model:'Aviator',mdId:'20669'},
-{make:'Lincoln',mkId:'20025',model:'Blackwood',mdId:'20701'},
-{make:'Lincoln',mkId:'20025',model:'Continental',mdId:'20849'},
-{make:'Lincoln',mkId:'20025',model:'LS',mdId:'21362'},
-{make:'Lincoln',mkId:'20025',model:'Mark LT',mdId:'21457'},
-{make:'Lincoln',mkId:'20025',model:'MKC',mdId:'56027'},
-{make:'Lincoln',mkId:'20025',model:'MKS',mdId:'21403'},
-{make:'Lincoln',mkId:'20025',model:'MKT',mdId:'27841'},
-{make:'Lincoln',mkId:'20025',model:'MKX',mdId:'21425'},
-{make:'Lincoln',mkId:'20025',model:'MKZ',mdId:'21404'},
-{make:'Lincoln',mkId:'20025',model:'MKZ Hybrid',mdId:'38163'},
-{make:'Lincoln',mkId:'20025',model:'Navigator',mdId:'21719'},
-{make:'Lincoln',mkId:'20025',model:'Navigator L',mdId:'30016700'},
-{make:'Lincoln',mkId:'20025',model:'Town Car',mdId:'22286'},
-{make:'Lincoln',mkId:'20025',model:'Zephyr',mdId:'22336'},
-{make:'Lotus',mkId:'20071',model:'Elise',mdId:'21056'},
-{make:'Lotus',mkId:'20071',model:'Esprit',mdId:'21094'},
-{make:'Lotus',mkId:'20071',model:'Esprit V8',mdId:'21076'},
-{make:'Lotus',mkId:'20071',model:'Evora',mdId:'34703'},
-{make:'Lotus',mkId:'20071',model:'Exige',mdId:'21103'},
-{make:'Lotus',mkId:'20071',model:'Exige S',mdId:'21084'},
-{make:'Maserati',mkId:'20072',model:'Coupe',mdId:'20891'},
-{make:'Maserati',mkId:'20072',model:'Ghibli',mdId:'21197'},
-{make:'Maserati',mkId:'20072',model:'GranSport',mdId:'21246'},
-{make:'Maserati',mkId:'20072',model:'GranSport Spyder',mdId:'21216'},
-{make:'Maserati',mkId:'20072',model:'GranTurismo',mdId:'21247'},
-{make:'Maserati',mkId:'20072',model:'Quattroporte',mdId:'21814'},
-{make:'Maserati',mkId:'20072',model:'Spyder',mdId:'22185'},
-{make:'Maybach',mkId:'20027',model:'Landaulet',mdId:'27481'},
-{make:'Maybach',mkId:'20027',model:'Type 57',mdId:'22232'},
-{make:'Maybach',mkId:'20027',model:'Type 62',mdId:'22319'},
-{make:'Mazda',mkId:'20073',model:'626',mdId:'20509'},
-{make:'Mazda',mkId:'20073',model:'B-Series Trucks',mdId:'27161,20681,20684,20685,20688,21775'},
-{make:'Mazda',mkId:'20073',model:'  - B2300',mdId:'20681'},
-{make:'Mazda',mkId:'20073',model:'  - B2500',mdId:'20684'},
-{make:'Mazda',mkId:'20073',model:'  - B3000',mdId:'20685'},
-{make:'Mazda',mkId:'20073',model:'  - B4000',mdId:'20688'},
-{make:'Mazda',mkId:'20073',model:'  - Pickup',mdId:'21775'},
-{make:'Mazda',mkId:'20073',model:'CX-3',mdId:'30000208'},
-{make:'Mazda',mkId:'20073',model:'CX-5',mdId:'47277'},
-{make:'Mazda',mkId:'20073',model:'CX-7',mdId:'20764'},
-{make:'Mazda',mkId:'20073',model:'CX-9',mdId:'20788'},
-{make:'Mazda',mkId:'20073',model:'Mazda2',mdId:'35965'},
-{make:'Mazda',mkId:'20073',model:'Mazda3',mdId:'21446'},
-{make:'Mazda',mkId:'20073',model:'Mazda5',mdId:'21488'},
-{make:'Mazda',mkId:'20073',model:'Mazda6',mdId:'21447'},
-{make:'Mazda',mkId:'20073',model:'MazdaSpeed Miata MX-5',mdId:'21490'},
-{make:'Mazda',mkId:'20073',model:'MazdaSpeed Protege',mdId:'21448'},
-{make:'Mazda',mkId:'20073',model:'MazdaSpeed3',mdId:'21492'},
-{make:'Mazda',mkId:'20073',model:'MazdaSpeed6',mdId:'21450'},
-{make:'Mazda',mkId:'20073',model:'Millenia',mdId:'21505'},
-{make:'Mazda',mkId:'20073',model:'MPV',mdId:'21427'},
-{make:'Mazda',mkId:'20073',model:'MX-5 Miata',mdId:'21460'},
-{make:'Mazda',mkId:'20073',model:'Protege',mdId:'21800'},
-{make:'Mazda',mkId:'20073',model:'Protege5',mdId:'21754'},
-{make:'Mazda',mkId:'20073',model:'RX-8',mdId:'21794'},
-{make:'Mazda',mkId:'20073',model:'Tribute',mdId:'22209'},
-{make:'Mazda',mkId:'20073',model:'Tribute Hybrid',mdId:'22300'},
-{make:'McLaren',mkId:'47903',model:'650S',mdId:'30001432'},
-{make:'McLaren',mkId:'47903',model:'MP4-12C',mdId:'47904'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG C',mdId:'30022818'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG CLA',mdId:'32982686'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG CLS',mdId:'30019342'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG E',mdId:'30019351'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG G',mdId:'30034663'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG GL',mdId:'30024860'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG GLA',mdId:'30024884'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG GLE',mdId:'30019374'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG GT',mdId:'30000114'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG S',mdId:'30022853'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG SL',mdId:'30022872'},
-{make:'Mercedes-Benz',mkId:'20028',model:'AMG SLK',mdId:'30019391'},
-{make:'Mercedes-Benz',mkId:'20028',model:'B-Class Electric Drive',mdId:'57790'},
-{make:'Mercedes-Benz',mkId:'20028',model:'C-Class',mdId:'20745'},
-{make:'Mercedes-Benz',mkId:'20028',model:'CL-Class',mdId:'20756'},
-{make:'Mercedes-Benz',mkId:'20028',model:'CLA-Class',mdId:'52909'},
-{make:'Mercedes-Benz',mkId:'20028',model:'CLK-Class',mdId:'20775'},
-{make:'Mercedes-Benz',mkId:'20028',model:'CLS-Class',mdId:'20758'},
-{make:'Mercedes-Benz',mkId:'20028',model:'E-Class',mdId:'21014'},
-{make:'Mercedes-Benz',mkId:'20028',model:'G-Class',mdId:'21177'},
-{make:'Mercedes-Benz',mkId:'20028',model:'GL-Class',mdId:'21190'},
-{make:'Mercedes-Benz',mkId:'20028',model:'GLA-Class',mdId:'56288'},
-{make:'Mercedes-Benz',mkId:'20028',model:'GLC-Class',mdId:'30011556'},
-{make:'Mercedes-Benz',mkId:'20028',model:'GLE-Class',mdId:'30003456'},
-{make:'Mercedes-Benz',mkId:'20028',model:'GLK-Class',mdId:'27621'},
-{make:'Mercedes-Benz',mkId:'20028',model:'M-Class',mdId:'21414'},
-{make:'Mercedes-Benz',mkId:'20028',model:'Maybach S',mdId:'30002097'},
-{make:'Mercedes-Benz',mkId:'20028',model:'Metris-Class',mdId:'30021242'},
-{make:'Mercedes-Benz',mkId:'20028',model:'R-Class',mdId:'21824'},
-{make:'Mercedes-Benz',mkId:'20028',model:'S-Class',mdId:'21906'},
-{make:'Mercedes-Benz',mkId:'20028',model:'SL-Class',mdId:'21930'},
-{make:'Mercedes-Benz',mkId:'20028',model:'SLK-Class',mdId:'21877'},
-{make:'Mercedes-Benz',mkId:'20028',model:'SLR McLaren',mdId:'21932'},
-{make:'Mercedes-Benz',mkId:'20028',model:'SLS AMG',mdId:'36043'},
-{make:'Mercedes-Benz',mkId:'20028',model:'SLS AMG Black Series',mdId:'54427'},
-{make:'Mercedes-Benz',mkId:'20028',model:'Sprinter',mdId:'22183'},
-{make:'Mercury',mkId:'20074',model:'Cougar',mdId:'20886'},
-{make:'Mercury',mkId:'20074',model:'Grand Marquis',mdId:'21223'},
-{make:'Mercury',mkId:'20074',model:'Marauder',mdId:'21449'},
-{make:'Mercury',mkId:'20074',model:'Mariner',mdId:'21421'},
-{make:'Mercury',mkId:'20074',model:'Mariner Hybrid',mdId:'21451'},
-{make:'Mercury',mkId:'20074',model:'Milan',mdId:'21504'},
-{make:'Mercury',mkId:'20074',model:'Milan Hybrid',mdId:'27662'},
-{make:'Mercury',mkId:'20074',model:'Montego',mdId:'21674'},
-{make:'Mercury',mkId:'20074',model:'Monterey',mdId:'21704'},
-{make:'Mercury',mkId:'20074',model:'Mountaineer',mdId:'21706'},
-{make:'Mercury',mkId:'20074',model:'Mystique',mdId:'21714'},
-{make:'Mercury',mkId:'20074',model:'Sable',mdId:'21944'},
-{make:'Mercury',mkId:'20074',model:'Villager',mdId:'22280'},
-{make:'Mini',mkId:'20075',model:'Clubman',mdId:'53149,38203,20855,20857'},
-{make:'Mini',mkId:'20075',model:'  - Clubman',mdId:'38203'},
-{make:'Mini',mkId:'20075',model:'  - Cooper Clubman',mdId:'20855'},
-{make:'Mini',mkId:'20075',model:'  - Cooper S Clubman',mdId:'20857'},
-{make:'Mini',mkId:'20075',model:'Convertible',mdId:'51005'},
-{make:'Mini',mkId:'20075',model:'Cooper',mdId:'20872'},
-{make:'Mini',mkId:'20075',model:'Cooper S',mdId:'20874'},
-{make:'Mini',mkId:'20075',model:'Countryman',mdId:'53148,41883,41884,36083'},
-{make:'Mini',mkId:'20075',model:'  - Cooper Countryman',mdId:'41883'},
-{make:'Mini',mkId:'20075',model:'  - Cooper S Countryman',mdId:'41884'},
-{make:'Mini',mkId:'20075',model:'  - Countryman',mdId:'36083'},
-{make:'Mini',mkId:'20075',model:'Coupe',mdId:'20891'},
-{make:'Mini',mkId:'20075',model:'Hardtop',mdId:'51006'},
-{make:'Mini',mkId:'20075',model:'Paceman',mdId:'51887'},
-{make:'Mini',mkId:'20075',model:'Roadster',mdId:'21834'},
-{make:'Mitsubishi',mkId:'20030',model:'Diamante',mdId:'21011'},
-{make:'Mitsubishi',mkId:'20030',model:'Eclipse',mdId:'21037'},
-{make:'Mitsubishi',mkId:'20030',model:'Endeavor',mdId:'21060'},
-{make:'Mitsubishi',mkId:'20030',model:'Galant',mdId:'21189'},
-{make:'Mitsubishi',mkId:'20030',model:'i-MiEV',mdId:'45843'},
-{make:'Mitsubishi',mkId:'20030',model:'Lancer',mdId:'21361'},
-{make:'Mitsubishi',mkId:'20030',model:'Lancer Evolution',mdId:'21379'},
-{make:'Mitsubishi',mkId:'20030',model:'Lancer Sportback',mdId:'21368'},
-{make:'Mitsubishi',mkId:'20030',model:'Mirage',mdId:'21466'},
-{make:'Mitsubishi',mkId:'20030',model:'Montero',mdId:'21676'},
-{make:'Mitsubishi',mkId:'20030',model:'Montero Sport',mdId:'21705'},
-{make:'Mitsubishi',mkId:'20030',model:'Outlander',mdId:'21742'},
-{make:'Mitsubishi',mkId:'20030',model:'Outlander Sport',mdId:'35966'},
-{make:'Mitsubishi',mkId:'20030',model:'Raider',mdId:'21854'},
-{make:'Morgan',mkId:'20076',model:'Aero 8',mdId:'20621'},
-{make:'Morgan',mkId:'20076',model:'Plus 8',mdId:'21735'},
-{make:'Morgan',mkId:'20076',model:'Roadster',mdId:'21834'},
-{make:'Nissan',mkId:'20077',model:'350Z',mdId:'20419'},
-{make:'Nissan',mkId:'20077',model:'370Z',mdId:'27663'},
-{make:'Nissan',mkId:'20077',model:'Altima',mdId:'20626'},
-{make:'Nissan',mkId:'20077',model:'Altima Hybrid',mdId:'20639'},
-{make:'Nissan',mkId:'20077',model:'Armada',mdId:'20645'},
-{make:'Nissan',mkId:'20077',model:'Cube',mdId:'28283'},
-{make:'Nissan',mkId:'20077',model:'Frontier',mdId:'21145'},
-{make:'Nissan',mkId:'20077',model:'GT-R',mdId:'21204'},
-{make:'Nissan',mkId:'20077',model:'Juke',mdId:'35967'},
-{make:'Nissan',mkId:'20077',model:'Leaf',mdId:'35968'},
-{make:'Nissan',mkId:'20077',model:'Maxima',mdId:'21445'},
-{make:'Nissan',mkId:'20077',model:'Murano',mdId:'21710'},
-{make:'Nissan',mkId:'20077',model:'Murano CrossCabriolet',mdId:'40403'},
-{make:'Nissan',mkId:'20077',model:'NV Vans',mdId:'43003,48583,52187,52189,52194,48589,52192,52670'},
-{make:'Nissan',mkId:'20077',model:'  - NV Cargo',mdId:'48583'},
-{make:'Nissan',mkId:'20077',model:'  - NV Cargo NV1500',mdId:'52187'},
-{make:'Nissan',mkId:'20077',model:'  - NV Cargo NV2500 HD',mdId:'52189'},
-{make:'Nissan',mkId:'20077',model:'  - NV Cargo NV3500 HD',mdId:'52194'},
-{make:'Nissan',mkId:'20077',model:'  - NV Passenger',mdId:'48589'},
-{make:'Nissan',mkId:'20077',model:'  - NV Passenger NV3500 HD',mdId:'52192'},
-{make:'Nissan',mkId:'20077',model:'  - NV200',mdId:'52670'},
-{make:'Nissan',mkId:'20077',model:'Pathfinder',mdId:'21761'},
-{make:'Nissan',mkId:'20077',model:'Pathfinder Hybrid',mdId:'52655'},
-{make:'Nissan',mkId:'20077',model:'Quest',mdId:'21764'},
-{make:'Nissan',mkId:'20077',model:'Rogue',mdId:'21894'},
-{make:'Nissan',mkId:'20077',model:'Rogue Hybrid',mdId:'30033647'},
-{make:'Nissan',mkId:'20077',model:'Rogue Select',mdId:'56530'},
-{make:'Nissan',mkId:'20077',model:'Sentra',mdId:'21931'},
-{make:'Nissan',mkId:'20077',model:'Titan',mdId:'22171'},
-{make:'Nissan',mkId:'20077',model:'Titan XD',mdId:'33761895'},
-{make:'Nissan',mkId:'20077',model:'Versa',mdId:'22274'},
-{make:'Nissan',mkId:'20077',model:'Versa Note',mdId:'52109'},
-{make:'Nissan',mkId:'20077',model:'Xterra',mdId:'22330'},
-{make:'Oldsmobile',mkId:'20032',model:'Alero',mdId:'20623'},
-{make:'Oldsmobile',mkId:'20032',model:'Aurora',mdId:'20654'},
-{make:'Oldsmobile',mkId:'20032',model:'Bravada',mdId:'20715'},
-{make:'Oldsmobile',mkId:'20032',model:'Intrigue',mdId:'21304'},
-{make:'Oldsmobile',mkId:'20032',model:'Silhouette',mdId:'22111'},
-{make:'Panoz',mkId:'20079',model:'AIV Roadster',mdId:'20602'},
-{make:'Panoz',mkId:'20079',model:'Esperante',mdId:'21074'},
-{make:'Panoz',mkId:'20079',model:'Roadster',mdId:'21834'},
-{make:'Plymouth',mkId:'20080',model:'Breeze',mdId:'20708'},
-{make:'Plymouth',mkId:'20080',model:'Grand Voyager',mdId:'21253'},
-{make:'Plymouth',mkId:'20080',model:'Neon',mdId:'21688'},
-{make:'Plymouth',mkId:'20080',model:'Prowler',mdId:'21801'},
-{make:'Plymouth',mkId:'20080',model:'Voyager',mdId:'22287'},
-{make:'Pontiac',mkId:'20035',model:'Aztek',mdId:'20673'},
-{make:'Pontiac',mkId:'20035',model:'Bonneville',mdId:'20709'},
-{make:'Pontiac',mkId:'20035',model:'Firebird',mdId:'21148'},
-{make:'Pontiac',mkId:'20035',model:'G3',mdId:'27401'},
-{make:'Pontiac',mkId:'20035',model:'G5',mdId:'21181'},
-{make:'Pontiac',mkId:'20035',model:'G6',mdId:'21155'},
-{make:'Pontiac',mkId:'20035',model:'G8',mdId:'21186'},
-{make:'Pontiac',mkId:'20035',model:'Grand Am',mdId:'21220'},
-{make:'Pontiac',mkId:'20035',model:'Grand Prix',mdId:'21251'},
-{make:'Pontiac',mkId:'20035',model:'GTO',mdId:'21207'},
-{make:'Pontiac',mkId:'20035',model:'Montana',mdId:'21670'},
-{make:'Pontiac',mkId:'20035',model:'Montana SV6',mdId:'21702'},
-{make:'Pontiac',mkId:'20035',model:'Solstice',mdId:'22141'},
-{make:'Pontiac',mkId:'20035',model:'Sunfire',mdId:'22126'},
-{make:'Pontiac',mkId:'20035',model:'Torrent',mdId:'22279'},
-{make:'Pontiac',mkId:'20035',model:'Vibe',mdId:'22276'},
-{make:'Porsche',mkId:'20081',model:'911',mdId:'20567'},
-{make:'Porsche',mkId:'20081',model:'918 Spyder',mdId:'57448'},
-{make:'Porsche',mkId:'20081',model:'Boxster',mdId:'20705'},
-{make:'Porsche',mkId:'20081',model:'Carrera GT',mdId:'20786'},
-{make:'Porsche',mkId:'20081',model:'Cayenne',mdId:'20791'},
-{make:'Porsche',mkId:'20081',model:'Cayenne E-Hybrid',mdId:'58570'},
-{make:'Porsche',mkId:'20081',model:'Cayenne Hybrid',mdId:'36987'},
-{make:'Porsche',mkId:'20081',model:'Cayman',mdId:'20819'},
-{make:'Porsche',mkId:'20081',model:'Macan',mdId:'56014'},
-{make:'Porsche',mkId:'20081',model:'Panamera',mdId:'30005'},
-{make:'Porsche',mkId:'20081',model:'Panamera e-Hybrid',mdId:'54449'},
-{make:'Porsche',mkId:'20081',model:'Panamera Hybrid',mdId:'46443'},
-{make:'Qvale',mkId:'20036',model:'Mangusta',mdId:'21439'},
-{make:'RAM',mkId:'44763',model:'1500',mdId:'20277'},
-{make:'RAM',mkId:'44763',model:'2500',mdId:'20377'},
-{make:'RAM',mkId:'44763',model:'3500',mdId:'20451'},
-{make:'RAM',mkId:'44763',model:'Cargo',mdId:'45303'},
-{make:'RAM',mkId:'44763',model:'ProMaster 1500',mdId:'52653'},
-{make:'RAM',mkId:'44763',model:'ProMaster 2500',mdId:'52651'},
-{make:'RAM',mkId:'44763',model:'ProMaster 2500 Window Van',mdId:'54810'},
-{make:'RAM',mkId:'44763',model:'ProMaster 3500',mdId:'52652'},
-{make:'RAM',mkId:'44763',model:'ProMaster 3500 Window Van',mdId:'30008915'},
-{make:'RAM',mkId:'44763',model:'ProMaster City',mdId:'30000373'},
-{make:'Rolls-Royce',mkId:'20037',model:'Corniche',mdId:'20878'},
-{make:'Rolls-Royce',mkId:'20037',model:'Ghost',mdId:'35023'},
-{make:'Rolls-Royce',mkId:'20037',model:'Park Ward',mdId:'21755'},
-{make:'Rolls-Royce',mkId:'20037',model:'Phantom',mdId:'56531'},
-{make:'Rolls-Royce',mkId:'20037',model:'Phantom Coupe',mdId:'21768'},
-{make:'Rolls-Royce',mkId:'20037',model:'Phantom Drophead Coupe',mdId:'21724'},
-{make:'Rolls-Royce',mkId:'20037',model:'Phantom VI',mdId:'21772'},
-{make:'Rolls-Royce',mkId:'20037',model:'Silver Seraph',mdId:'22117'},
-{make:'Rolls-Royce',mkId:'20037',model:'Wraith',mdId:'52656'},
-{make:'Saab',mkId:'20038',model:'9-2X',mdId:'20565'},
-{make:'Saab',mkId:'20038',model:'9-3',mdId:'20549'},
-{make:'Saab',mkId:'20038',model:'9-3X',mdId:'43903'},
-{make:'Saab',mkId:'20038',model:'9-4X',mdId:'42943'},
-{make:'Saab',mkId:'20038',model:'9-5',mdId:'20566'},
-{make:'Saab',mkId:'20038',model:'9-7X',mdId:'20551'},
-{make:'Saleen',mkId:'20084',model:'S7',mdId:'21862'},
-{make:'Saturn',mkId:'20039',model:'Astra',mdId:'20649'},
-{make:'Saturn',mkId:'20039',model:'Aura',mdId:'20655'},
-{make:'Saturn',mkId:'20039',model:'Aura Hybrid (all)',mdId:'32663,20652,20657'},
-{make:'Saturn',mkId:'20039',model:'  - Aura Green Line',mdId:'20652'},
-{make:'Saturn',mkId:'20039',model:'  - Aura Hybrid',mdId:'20657'},
-{make:'Saturn',mkId:'20039',model:'Ion',mdId:'21305'},
-{make:'Saturn',mkId:'20039',model:'L',mdId:'21310'},
-{make:'Saturn',mkId:'20039',model:'LS',mdId:'21362'},
-{make:'Saturn',mkId:'20039',model:'LW',mdId:'21351'},
-{make:'Saturn',mkId:'20039',model:'Outlook',mdId:'21698'},
-{make:'Saturn',mkId:'20039',model:'Relay',mdId:'21819'},
-{make:'Saturn',mkId:'20039',model:'SC',mdId:'21924'},
-{make:'Saturn',mkId:'20039',model:'Sky',mdId:'22075'},
-{make:'Saturn',mkId:'20039',model:'SL',mdId:'21875'},
-{make:'Saturn',mkId:'20039',model:'SW',mdId:'21942'},
-{make:'Saturn',mkId:'20039',model:'Vue',mdId:'22368'},
-{make:'Saturn',mkId:'20039',model:'Vue Hybrid (all)',mdId:'32664,22289,22369'},
-{make:'Saturn',mkId:'20039',model:'  - Vue Green Line',mdId:'22289'},
-{make:'Saturn',mkId:'20039',model:'  - Vue Hybrid',mdId:'22369'},
-{make:'Scion',mkId:'20085',model:'FR-S',mdId:'47565'},
-{make:'Scion',mkId:'20085',model:'iA',mdId:'30003484'},
-{make:'Scion',mkId:'20085',model:'iM',mdId:'30003493'},
-{make:'Scion',mkId:'20085',model:'iQ',mdId:'35969'},
-{make:'Scion',mkId:'20085',model:'tC',mdId:'22401'},
-{make:'Scion',mkId:'20085',model:'xA',mdId:'22340'},
-{make:'Scion',mkId:'20085',model:'xB',mdId:'22402'},
-{make:'Scion',mkId:'20085',model:'xD',mdId:'22341'},
-{make:'Scion',mkId:'20085',model:'undefined',mdId:'smart'},
-{make:'Scion',mkId:'20085',model:'ForTwo',mdId:'21164'},
-{make:'Scion',mkId:'20085',model:'ForTwo Electric Drive',mdId:'42803'},
-{make:'Spyker',mkId:'33584',model:'C8',mdId:'38403'},
-{make:'Spyker',mkId:'33584',model:'C8 Aileron',mdId:'33604'},
-{make:'Spyker',mkId:'33584',model:'C8 Laviolette',mdId:'34823'},
-{make:'Subaru',mkId:'20041',model:'B9 Tribeca',mdId:'20687'},
-{make:'Subaru',mkId:'20041',model:'Baja',mdId:'20690'},
-{make:'Subaru',mkId:'20041',model:'BRZ',mdId:'47566'},
-{make:'Subaru',mkId:'20041',model:'Crosstrek',mdId:'30031770'},
-{make:'Subaru',mkId:'20041',model:'Crosstrek Hybrid',mdId:'30031781'},
-{make:'Subaru',mkId:'20041',model:'Forester',mdId:'21165'},
-{make:'Subaru',mkId:'20041',model:'Impreza',mdId:'21295'},
-{make:'Subaru',mkId:'20041',model:'Impreza Outback Sport',mdId:'36843'},
-{make:'Subaru',mkId:'20041',model:'Impreza WRX',mdId:'51803'},
-{make:'Subaru',mkId:'20041',model:'Impreza WRX STi',mdId:'38443'},
-{make:'Subaru',mkId:'20041',model:'Legacy',mdId:'21378'},
-{make:'Subaru',mkId:'20041',model:'Outback',mdId:'21697'},
-{make:'Subaru',mkId:'20041',model:'Tribeca',mdId:'22298'},
-{make:'Subaru',mkId:'20041',model:'WRX',mdId:'50683'},
-{make:'Subaru',mkId:'20041',model:'WRX STI',mdId:'50684'},
-{make:'Subaru',mkId:'20041',model:'XV Crosstrek',mdId:'48265'},
-{make:'Subaru',mkId:'20041',model:'XV Crosstrek Hybrid',mdId:'52657'},
-{make:'Suzuki',mkId:'20042',model:'Aerio',mdId:'20619'},
-{make:'Suzuki',mkId:'20042',model:'Equator',mdId:'21079'},
-{make:'Suzuki',mkId:'20042',model:'Esteem',mdId:'21098'},
-{make:'Suzuki',mkId:'20042',model:'Forenza',mdId:'21140'},
-{make:'Suzuki',mkId:'20042',model:'Grand Vitara',mdId:'21225'},
-{make:'Suzuki',mkId:'20042',model:'Kizashi',mdId:'34643'},
-{make:'Suzuki',mkId:'20042',model:'Reno',mdId:'21826'},
-{make:'Suzuki',mkId:'20042',model:'Swift',mdId:'22229'},
-{make:'Suzuki',mkId:'20042',model:'SX4',mdId:'21893'},
-{make:'Suzuki',mkId:'20042',model:'Verona',mdId:'22359'},
-{make:'Suzuki',mkId:'20042',model:'Vitara',mdId:'22284'},
-{make:'Suzuki',mkId:'20042',model:'XL7',mdId:'22328'},
-{make:'Tesla',mkId:'28263',model:'Model S',mdId:'21655'},
-{make:'Tesla',mkId:'28263',model:'Roadster',mdId:'21834'},
-{make:'Toyota',mkId:'20088',model:'4Runner',mdId:'20482'},
-{make:'Toyota',mkId:'20088',model:'Avalon',mdId:'20658'},
-{make:'Toyota',mkId:'20088',model:'Avalon Hybrid',mdId:'51703'},
-{make:'Toyota',mkId:'20088',model:'Camry',mdId:'20800'},
-{make:'Toyota',mkId:'20088',model:'Camry Hybrid',mdId:'20774'},
-{make:'Toyota',mkId:'20088',model:'Camry Solara',mdId:'20802'},
-{make:'Toyota',mkId:'20088',model:'Celica',mdId:'20821'},
-{make:'Toyota',mkId:'20088',model:'Corolla',mdId:'20861'},
-{make:'Toyota',mkId:'20088',model:'ECHO',mdId:'21016'},
-{make:'Toyota',mkId:'20088',model:'FJ Cruiser',mdId:'21127'},
-{make:'Toyota',mkId:'20088',model:'Highlander',mdId:'21260'},
-{make:'Toyota',mkId:'20088',model:'Highlander Hybrid',mdId:'21233'},
-{make:'Toyota',mkId:'20088',model:'Land Cruiser',mdId:'21381'},
-{make:'Toyota',mkId:'20088',model:'Matrix',mdId:'21444'},
-{make:'Toyota',mkId:'20088',model:'Mirai',mdId:'33385383'},
-{make:'Toyota',mkId:'20088',model:'MR2',mdId:'21405'},
-{make:'Toyota',mkId:'20088',model:'Prius',mdId:'21751'},
-{make:'Toyota',mkId:'20088',model:'Prius c',mdId:'47567'},
-{make:'Toyota',mkId:'20088',model:'Prius Plug-in',mdId:'47108'},
-{make:'Toyota',mkId:'20088',model:'Prius v',mdId:'46703'},
-{make:'Toyota',mkId:'20088',model:'RAV4',mdId:'21780'},
-{make:'Toyota',mkId:'20088',model:'RAV4 EV',mdId:'50903'},
-{make:'Toyota',mkId:'20088',model:'RAV4 Hybrid',mdId:'30003416'},
-{make:'Toyota',mkId:'20088',model:'Sequoia',mdId:'21933'},
-{make:'Toyota',mkId:'20088',model:'Sienna',mdId:'22101'},
-{make:'Toyota',mkId:'20088',model:'Tacoma',mdId:'22250'},
-{make:'Toyota',mkId:'20088',model:'Tundra',mdId:'22213'},
-{make:'Toyota',mkId:'20088',model:'Venza',mdId:'22358'},
-{make:'Toyota',mkId:'20088',model:'Yaris',mdId:'22331'},
-{make:'Volkswagen',mkId:'20089',model:'Beetle',mdId:'43344'},
-{make:'Volkswagen',mkId:'20089',model:'Cabrio',mdId:'20766'},
-{make:'Volkswagen',mkId:'20089',model:'CC',mdId:'27321'},
-{make:'Volkswagen',mkId:'20089',model:'e-Golf',mdId:'56107'},
-{make:'Volkswagen',mkId:'20089',model:'Eos',mdId:'21064'},
-{make:'Volkswagen',mkId:'20089',model:'Eurovan',mdId:'21100'},
-{make:'Volkswagen',mkId:'20089',model:'Golf',mdId:'21242'},
-{make:'Volkswagen',mkId:'20089',model:'Golf GTI',mdId:'58767'},
-{make:'Volkswagen',mkId:'20089',model:'Golf R',mdId:'47951'},
-{make:'Volkswagen',mkId:'20089',model:'Golf SportWagen',mdId:'30003099'},
-{make:'Volkswagen',mkId:'20089',model:'GTI',mdId:'21183'},
-{make:'Volkswagen',mkId:'20089',model:'Jetta',mdId:'21285'},
-{make:'Volkswagen',mkId:'20089',model:'Jetta Hybrid',mdId:'47568'},
-{make:'Volkswagen',mkId:'20089',model:'Jetta SportWagen',mdId:'50644'},
-{make:'Volkswagen',mkId:'20089',model:'New Beetle',mdId:'20691'},
-{make:'Volkswagen',mkId:'20089',model:'Passat',mdId:'21758'},
-{make:'Volkswagen',mkId:'20089',model:'Phaeton',mdId:'21723'},
-{make:'Volkswagen',mkId:'20089',model:'R32',mdId:'21827'},
-{make:'Volkswagen',mkId:'20089',model:'Rabbit',mdId:'21796'},
-{make:'Volkswagen',mkId:'20089',model:'Routan',mdId:'21896'},
-{make:'Volkswagen',mkId:'20089',model:'Tiguan',mdId:'22265'},
-{make:'Volkswagen',mkId:'20089',model:'Touareg',mdId:'22189'},
-{make:'Volkswagen',mkId:'20089',model:'Touareg 2',mdId:'22281'},
-{make:'Volkswagen',mkId:'20089',model:'Touareg Hybrid',mdId:'39827'},
-{make:'Volvo',mkId:'20044',model:'C30',mdId:'20749'},
-{make:'Volvo',mkId:'20044',model:'C70',mdId:'20751'},
-{make:'Volvo',mkId:'20044',model:'S40',mdId:'21857'},
-{make:'Volvo',mkId:'20044',model:'S60',mdId:'21916'},
-{make:'Volvo',mkId:'20044',model:'S60 Cross Country',mdId:'30000874'},
-{make:'Volvo',mkId:'20044',model:'S60 Inscription',mdId:'30019645'},
-{make:'Volvo',mkId:'20044',model:'S70',mdId:'21918'},
-{make:'Volvo',mkId:'20044',model:'S80',mdId:'21920'},
-{make:'Volvo',mkId:'20044',model:'V40',mdId:'22349'},
-{make:'Volvo',mkId:'20044',model:'V50',mdId:'22251'},
-{make:'Volvo',mkId:'20044',model:'V60',mdId:'56208'},
-{make:'Volvo',mkId:'20044',model:'V60 Cross Country',mdId:'30003796'},
-{make:'Volvo',mkId:'20044',model:'V70',mdId:'22350'},
-{make:'Volvo',mkId:'20044',model:'XC60',mdId:'22379'},
-{make:'Volvo',mkId:'20044',model:'XC70',mdId:'22313'},
-{make:'Volvo',mkId:'20044',model:'XC90',mdId:'22380'},
-{make:'Volvo',mkId:'20044',model:'XC90 Hybrid',mdId:'30023481'} ];
-
-var modelYear = {"1968":20125, "1969":20181, "1970":20126, "1971":20182, "1972":20127, "1973":20183, "1974":20128, "1975":20184, "1976":20129, "1977":20185, "1978":20130, "1979":20186, "1980":20131, "1981":20187, "1982":20132, "1983":20188, "1984":20133, "1985":20189, "1986":20134, "1987":20190, "1988":20135, "1989":20191, "1990":20136, "1991":20192, "1992":20137, "1993":20193, "1994":20138, "1995":20194, "1996":20139, "1997":20195, "1998":20140, "1999":20196, "2000":20141, "2001":20197, "2002":20142, "2003":20198, "2004":20143, "2005":20199, "2006":20144, "2007":20200, "2008":20145, "2009":20201, "2010":27381, "2011":34923, "2012":39723, "2013":47272, "2014":51683, "2015":56007, "2016":58487, "2017":30031936 };
-
-// get elements from form
-var zipcode =       document.getElementById("zip");
-var radius =        document.getElementById("radius");
-var inputMake =     document.getElementById("make_0");
-var inputModel =    document.getElementById("model_0");
-var inputYearLow =  document.getElementById("yearLow");
-var inputYearHigh = document.getElementById("yearHigh");
-var keyword =       document.getElementById("keyword");
-
-var outputField =   document.getElementById("output");
-
-var vehicle = document.getElementsByClassName("vehicle");  // array with all results on page
-document.registerElement("data-js-vehicle-row");
-
-var rg = [];  // results (global); for use with console
-
+var carsArray = [];
+var modelYear = [];
+var rg = [];
 // END GLOBALS
 
-
-
-///// ***END MAIN*** /////
+loadMakeModel();
 
 ///////////////////////////
-function loadModelDropdown (mkId) {
+function loadMakeModel() {
+  var loader = new XMLHttpRequest;
+  loader.addEventListener("load",function() {
+    carsArray = JSON.parse(loader.responseText).data;
+    loadModelYear();
+  });
+  loader.open("GET","makemodel.json");
+  loader.send();
+}
+///////////////////////////
+function loadModelYear() {
+  var loader = new XMLHttpRequest;
+  loader.addEventListener("load",function() {
+    modelYear = JSON.parse(loader.responseText).data;
+    createListeners();
+  });
+  loader.open("GET","modelyear.json");
+  loader.send();
+}
+///////////////////////////
+function createListeners() {
+  document.getElementById("make_dropdown").addEventListener("change",loadModelDropdown);
+  document.getElementById("go_button").addEventListener("click",fooFunction);
+}
+///////////////////////////
+function loadModelDropdown () {
+  var mkId = document.getElementById("make_dropdown").value;
   // build HTML string for model dropdown and pass it through DOM
   var modelMenu = "";
 
-  for (k=0; k<carsArray.length; k++) {
+  for (var k=0; k < carsArray.length; k++) {
     if (carsArray[k].mkId == mkId) {
-      modelMenu += "<option value='"+carsArray[k].mdId+"'>"+carsArray[k].model+"</option>";
+      modelMenu += `<option value='${carsArray[k].mdId}'>${carsArray[k].model}</option>`;
     }
   }
-  inputModel.innerHTML = "<option value=''>All Makes</option>"+ modelMenu;
+  document.getElementById("model_dropdown").innerHTML = "<option value=''>All Makes</option>" + modelMenu;
 }
 ///////////////////////////
 function fooFunction() {
+  // make the form invisible
+  document.querySelector("form").style.display = "none";
+
   // build urlString and fetch the data
+
+  // get elements from form
+  var zipcode =       document.getElementById("zip");
+  var radius =        document.getElementById("radius");
+  var inputMake =     document.getElementById("make_dropdown");
+  var inputModel =    document.getElementById("model_dropdown");
+  var inputYearLow =  document.getElementById("yearLow");
+  var inputYearHigh = document.getElementById("yearHigh");
+  var keyword =       document.getElementById("keyword");
 
   var urlString =  "http://www.cars.com/for-sale/searchresults.action?";
   urlString += "&rd=" + radius.value;
@@ -1034,73 +66,114 @@ function fooFunction() {
   urlString += "&zc=" + zipcode.value;
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
-  urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";
-  urlString += makeYearString(yearLow.value,yearHigh.value);
+  urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";  // kwm=ANY means match any keyword
+  urlString += makeYearString(inputYearLow.value,inputYearHigh.value);
   urlString += "&rpp=250"; // results per page, can be (10,20,30,50,100,250)
 
   // note: to search for a vehicle by ID, use the ID number as a keyword
 
   console.log("built URL string:",urlString);
-+
+
   doCORSRequest({method:'GET',url:urlString,data:""});
 }
 ///////////////////////////
 function doCORSRequest(options) {
   var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-  var results = [];
 
   var x = new XMLHttpRequest();
-  x.open(options.method, cors_api_url + options.url);  //note syntax for x.open
-  x.send(options.data);                                //note syntax for x.send
+  x.open(options.method, cors_api_url + options.url);
+  x.send(options.data);
   x.onload = function() {  // upon onload, do this function
     if ( (x.readyState === x.DONE) && (x.status === 200) ) {
-      outputField.innerHTML = x.response; // this makes response accessible thru DOM
-
-      // process results
-      for (m=0; m < vehicle.length; m++) {
-        var vehicleObjAsString = vehicle[m].getAttribute("data-js-vehicle-row"); // grab custom attribute
-        vehicleObjAsString = vehicleObjAsString.replace(/:,/g, ':"NR",'); // fix any non-compliant null values
-        var vehicleObj = JSON.parse(vehicleObjAsString); // parse data from string into object
-        console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
-        console.log("stock type:",vehicleObj.stockType);
-
-        var secondary = vehicle[m].children.item(1).children.item(0).innerHTML; // class="secondary"
-        var year = sliceIt(secondary,"modelYearSort");
-        var name = sliceIt(secondary,"mmtSort");  // e.g. "BMW 328i xDrive"
-
-        console.log("Year:",year);
-        console.log("Name:",name);
-
-        var description = vehicle[m].children.item(1).children.item(1).innerHTML;
-        var extColor = sliceIt(description,"exteriorColorSort");
-        var transmission = sliceIt(description,"transmissionSort");
-        // var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
-
-        console.log("Color:",extColor);
-        console.log("Trans:",transmission);
-        // console.log("Snoopy:",snoopy);
-
-        var col8alignright = vehicle[m].children.item(2).children.item(2).innerHTML
-        // console.log("col8alignright:",col8alignright);
-        var mileage = sliceIt(col8alignright,"milesSort").replace(",","").replace(" mi.","");
-
-        console.log("mileage:",mileage);
-
-        results.push( { id:vehicleObj.listingId,
-                        year:year,
-                        color:extColor,
-                        desc:name,
-                        transmission:transmission,
-                        mileage:mileage,
-                        price:vehicleObj.price } );
-      } // end for m
-      localStorage.setItem('searchResults',JSON.stringify(results)); // convert result array to string & store it
-      rg = results;  // assign local results variable to global results variable
-      window.location.pathname = "/display_results.html";  // open new HTML page
+      var outputField = document.getElementById("output");
+      outputField.style.display = "none";
+      outputField.innerHTML = x.response; // load results into DOM (is there a better way?)
+      var results = buildResultsArray();
+      rg = results;  // for testing, make results available to variable rg in global scope
+      displayResults(results);
     } // end if
   } // end onload function
 } // end function doCORSRequest
+///////////////////////////
+function buildResultsArray() {
+  var results = [];
+  var vehicle = document.getElementsByClassName("vehicle");  // array with all results on page
 
+  for (var m = 0; m < vehicle.length; m++) {
+    var vehicleObjAsString = vehicle[m].getAttribute("data-js-vehicle-row"); // grab value of custom attribute
+    vehicleObjAsString = vehicleObjAsString.replace(/:,/g, ':"NR",'); // fix any non-compliant null values
+    var vehicleObj = JSON.parse(vehicleObjAsString); // parse data from string into object
+    console.log("listingId:",vehicleObj.listingId,"price:",vehicleObj.price);
+    console.log("stock type:",vehicleObj.stockType);
+
+    var secondary = vehicle[m].children.item(1).children.item(0).innerHTML; // class="secondary"
+    var year = sliceIt(secondary,"modelYearSort");
+    var name = sliceIt(secondary,"mmtSort");  // e.g. "BMW 328i xDrive"
+
+    console.log("Year:",year);
+    console.log("Name:",name);
+
+    var description = vehicle[m].children.item(1).children.item(1).innerHTML;
+    var extColor = sliceIt(description,"exteriorColorSort");
+    var transmission = sliceIt(description,"transmissionSort");
+    // var snoopy = sliceIt(description,"snoopy");  // for testing instance where key is not found
+
+    console.log("Color:",extColor);
+    console.log("Trans:",transmission);
+    // console.log("Snoopy:",snoopy);
+
+    var col8alignright = vehicle[m].children.item(2).children.item(2).innerHTML
+    // console.log("col8alignright:",col8alignright);
+    var mileage = sliceIt(col8alignright,"milesSort").replace(",","").replace(" mi.","");
+
+    console.log("mileage:",mileage);
+
+    results.push( { id:vehicleObj.listingId,
+                    year:year,
+                    color:extColor,
+                    desc:name,
+                    transmission:transmission,
+                    mileage:mileage,
+                    price:vehicleObj.price } );
+  } // end for m
+  return results;
+}
+/////////////////////////
+function displayResults(results) {
+
+  // fill first row
+  outputHTML  = '<table><tr class="row">';
+  outputHTML += '<th class="cell-id">Vehicle ID</th>';
+  outputHTML += '<th class="cell-color">Color</th>';
+  outputHTML += '<th class="cell-year">Year</th>';
+  outputHTML += '<th class="cell-desc">Description</th>';
+  outputHTML += '<th class="cell-mile">Miles</th>';
+  outputHTML += '<th class="cell-price">Price</th></tr>';
+
+  // fill row for each car
+  for (var i = 0; i < results.length; i++) {
+    outputHTML += "<tr class='row'><td class='cell-id'>"+results[i].id+"</td>";
+    outputHTML += "<td class='cell-color'>"+results[i].color.slice(0,18)+"</td>";
+    outputHTML += "<td class='cell-year'>"+results[i].year+"</td>";
+    outputHTML += "<td class='cell-desc'>"+results[i].desc.slice(0,30)+"</td>";
+    outputHTML += "<td class='cell-mile'>"+results[i].mileage+"</td>";
+    outputHTML += "<td class='cell-price'>"+results[i].price+"</td></tr>";
+  }
+
+  document.getElementById("output").innerHTML = outputHTML;
+  document.getElementById("output").style.display = "inline";
+
+  // add event listener on each Vehicle ID
+  var vehicleID = document.getElementsByClassName("cell-id");
+  for (var i = 0; i < vehicleID.length; i++) {
+    vehicleID[i].addEventListener("click",function(event){
+      console.log("you clicked on ID =",event.target.innerHTML);
+      // construct URL search string and open that URL in new tab
+    });
+  }
+
+}
+////////////////////////////
 function sliceIt(wholeString,searchString) {
   var startPos = wholeString.indexOf(searchString) + searchString.length + 2;
   var endPos = wholeString.indexOf("<",startPos);
@@ -1110,37 +183,23 @@ function sliceIt(wholeString,searchString) {
     return "***NOT FOUND***";
   }
 }
-
-
-//        if (stype !== "New") { // we only want used
-//   try{
-// //        }
-// } catch(err) {
-//   console.log("caught error at m=",m);
-//   console.log("last index in transmission array:",transmission.length-1);
-//   // throwing an error because max m is 106 and highest transmission index is 104
-
-
-
-// }
-//       }
-//       console.log(results);
-
 ///////////////////////////
 function makeYearString(yearLowId,yearHighId) {
-  var yrLow, yrHigh, yrStringForURL = "";
+  var yrStringForURL = "";
+  var yrLowIndex, yrHighIndex;
+  var j;
 
-  for (var j=1968; j<=2017; j++) {
-    if (modelYear[j.toString()] == yearLowId) {
-      yrLow = j;
+  for (j = 0; j < modelYear.length; j++) {
+    if (modelYear[j].yearID == yearLowId) {
+      yrLowIndex = j;
     }
-    if (modelYear[j.toString()] == yearHighId) {
-      yrHigh = j;
+    if (modelYear[j].yearID == yearHighId) {
+      yrHighIndex = j;
     }
   }
 
-  for (var j=yrLow; j<=yrHigh; j++) {
-    yrStringForURL += "&yrId=" + modelYear[j.toString()];
+  for (j = yrLowIndex; j <= yrHighIndex; j++) {
+    yrStringForURL += "&yrId" + modelYear[j].yearID;
   }
 
   return yrStringForURL;

@@ -11,7 +11,7 @@
       <input name="radius" id="radius">
       <br>
 
-      <select name="mkId" id="make_0" onchange="loadModelDropdown(this.value)">
+      <select name="mkId" id="make_dropdown">
         <option value="">All Makes</option><option value="20001">Acura</option><option value="20047">Alfa Romeo</option>
         <!-- <option value="20002"> Am General</option> -->
         <option value="20003">Aston Martin</option><option value="20049">Audi</option>
@@ -21,7 +21,7 @@
         <option value="44763">RAM</option><option value="20037">Rolls-Royce</option><option value="20038">Saab</option><option value="20084">Saleen</option><option value="20039">Saturn</option><option value="20085">Scion</option><option value="20228">smart</option><option value="33584">Spyker</option><option value="20041">Subaru</option><option value="20042">Suzuki</option><option value="28263">Tesla</option><option value="20088">Toyota</option><option value="20089">Volkswagen</option><option value="20044">Volvo</option>
       </select>
 
-      <select name="mkId" id="model_0">
+      <select name="mkId" id="model_dropdown">
       <option value="" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
       </select>
 
@@ -138,7 +138,7 @@
       <input type="text" name="keyword" id="keyword">
       <br>
 
-      <input type="button" value="create URL" id="go_button" onclick="fooFunction()">
+      <input type="button" value="create URL" id="go_button">
     </form>
 
     <section id="output"></section>

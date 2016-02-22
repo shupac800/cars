@@ -1,0 +1,23 @@
+section {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Console', monospace;
+  font-size: 0.9em;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.row:nth-child(odd){
+  background-color: #C6FFA3;
+}
+
+.row:first-child {
+  background-color: #FFD3D3;
+}
+
+.cell-id:hover {
+  color: red;
+}
