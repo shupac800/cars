@@ -141,8 +141,9 @@ function buildResultsArray() {
 /////////////////////////
 function displayResults(results) {
 
+  outputHTML = `<p class='howMany'>${results.length} vehicles found</p>`
   // fill first row
-  outputHTML  = '<table><tr class="row">';
+  outputHTML += '<table><tr class="row">';
   outputHTML += '<th class="cell-id">Vehicle ID</th>';
   outputHTML += '<th class="cell-color">Color</th>';
   outputHTML += '<th class="cell-year">Year</th>';
@@ -167,8 +168,8 @@ function displayResults(results) {
   var vehicleID = document.getElementsByClassName("cell-id");
   for (var i = 0; i < vehicleID.length; i++) {
     vehicleID[i].addEventListener("click",function(event){
-      console.log("you clicked on ID =",event.target.innerHTML);
-      // construct URL search string and open that URL in new tab
+      var urlString = `http://www.cars.com/vehicledetail/detail/${event.target.innerHTML}/overview/`;
+      window.open(urlString,'_blank');
     });
   }
 
