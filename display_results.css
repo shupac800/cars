@@ -1,0 +1,98 @@
+section {
+  margin: 0;
+  padding: 0;
+  border: 2px solid red;
+  width: 723px;
+  font-family: 'Lucida Console', monospace;
+  font-size: 0.7em;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.row:nth-child(odd){
+  background-color: #C6FFA3;
+}
+
+.row:first-child {
+  background-color: #FFD3D3;
+}
+
+
+/* for .cell, note this hack:
+https://css-tricks.com/fighting-the-space-between-block-elements/ */
+
+.cell-id {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 90px;
+}
+
+.cell-color {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 128px;
+}
+
+span {
+  margin-top: 3px;
+}
+
+.cell-year {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 50px;
+}
+
+.cell-desc {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 220px;
+}
+
+.cell-mile {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 60px;
+}
+
+.cell-price {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 60px;
+}
+
+.cell-ratio {
+  display: inline-block;
+  margin: 0;
+  margin-left: -1px;
+  padding: 0;
+  padding-left: 5px;
+  border: 1px solid gray;
+  width: 70px;
+}
