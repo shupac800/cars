@@ -1,0 +1,1051 @@
+Acura
+20773.CL
+47843.ILX
+48964.ILX Hybrid
+21266.Integra
+21422.MDX
+21685.NSX
+21831.RDX
+21782.RL
+51867.RLX
+58167.RLX Sport Hybrid
+21784.RSX
+22237.TL
+57287.TLX
+22248.TSX
+32888.ZDX
+Alfa Romeo
+57327.4C
+30021900.4C Spider
+34963.8c Competizione
+Am General
+21235.Hummer
+Aston Martin
+46643.DB AR1 Zagato
+20961.DB7
+20955.DB7 Vantage
+20967.DB9
+20957.DBS
+37363.Rapide
+53259.Rapide S
+22247.V12 Vanquish
+40743.V12 Vantage
+57988.V12 Vantage S
+22253.V8 Vantage
+47110.V8 Vantage S
+52728.Vanquish
+22266.Vantage
+30002548.Vantage GT
+22282.Virage
+Audi
+20591.A3
+30026257.A3 e-tron
+20596.A4
+20593.A5
+20598.A6
+43143.A7
+20595.A8
+22398.allroad
+56290.Q3
+27681.Q5
+50823.Q5 hybrid
+21759.Q7
+21778.R8
+21783.RS 4
+47273.RS 5
+54467.RS 7
+21835.RS6
+21855.S3
+21912.S4
+21914.S5
+21859.S6
+21862.S7
+21863.S8
+53787.SQ5
+22159.TT
+45283.TT RS
+27461.TTS
+Avanti Motors
+20662.Avanti
+Bentley
+20638.Arnage
+20668.Azure
+33535058.Bentayga
+20719.Brooklands
+20849.Continental
+20868.Continental Flying Spur
+20851.Continental GT
+20870.Continental GTC
+31863.Continental Supersports
+53407.Flying Spur
+21680.Mulsanne
+21774.R-Type
+BMW
+26661,43243,20281,20292.1-Series
+43243.  - 1 Series M
+20281.  - 128
+20292.  - 135
+20321.228
+26641,20406,20443,20408,20444,54409,54812,20409,20445,54410,21392.3-Series
+20406.  - 320
+20443.  - 323
+20408.  - 325
+20444.  - 328
+54409.  - 328 Gran Turismo
+54812.  - 328d
+20409.  - 330
+20445.  - 335
+54410.  - 335 Gran Turismo
+21392.  - M3
+33797688.330e
+20411.340
+54808,20434,57268,54807,57267,56127.4-Series
+20434.  - 428
+57268.  - 428 Gran Coupe
+54807.  - 435
+57267.  - 435 Gran Coupe
+56127.  - M4
+26662,20470,20496,20498,20500,36963,54811,20502,20481,20487,35050,21396.5-Series
+20470.  - 525
+20496.  - 528
+20498.  - 530
+20500.  - 535
+36963.  - 535 Gran Turismo
+54811.  - 535d
+20502.  - 540
+20481.  - 545
+20487.  - 550
+35050.  - 550 Gran Turismo
+21396.  - M5
+26875,20513,48064,20524,20515,49763,21420.6-Series
+20513.  - 640
+48064.  - 640 Gran Coupe
+20524.  - 645
+20515.  - 650
+49763.  - 650 Gran Coupe
+21420.  - M6
+26876,20539,20534,20536,20538,35923,20625.7-Series
+20539.  - 740
+20534.  - 745
+20536.  - 750
+20538.  - 760
+35923.  - ActiveHybrid 750
+20625.  - Alpina B7
+49843.ActiveHybrid 3
+47944.ActiveHybrid 5
+56187.ActiveHybrid 7
+49923.ActiveHybrid 740
+57269.ALPINA B6 Gran Coupe
+56067.i3
+56068.i8
+27701,43243,21388,56207,21392,56127,21396,21420,52547,32885,33023,22334.M-Series
+43243.  - 1 Series M
+21388.  - M
+56207.  - M235
+21392.  - M3
+56127.  - M4
+21396.  - M5
+21420.  - M6
+52547.  - M6 Gran Coupe
+32885.  - X5 M
+33023.  - X6 M
+22334.  - Z4 M
+33443,39483,48263,22310,56907,22378,32885,22312,33023.X-Series
+39483.  - ActiveHybrid X6
+48263.  - X1
+22310.  - X3
+56907.  - X4
+22378.  - X5
+32885.  - X5 M
+22312.  - X6
+33023.  - X6 M
+30032858.X5 eDrive
+22333.Z3
+22395.Z4
+22396.Z8
+Bugatti
+55767.Veyron
+33603.Veyron 16.4
+Buick
+30000872.Cascada
+20826.Century
+21058.Enclave
+21071.Encore
+21355.LaCrosse
+21393.LeSabre
+21406.Lucerne
+21713.Park Avenue
+21798.Rainier
+21878.Regal
+21883.Rendezvous
+22167.Terraza
+46183.Verano
+Cadillac
+47563.ATS
+30001954.ATS-V
+20789.Catera
+30003197.CT6
+20787.CTS
+30000964.CTS-V
+20983.DeVille
+20987.DTS
+21059.Eldorado
+52107.ELR
+21081.Escalade
+21066.Escalade ESV
+21086.Escalade EXT
+21068.Escalade Hybrid
+22080.Seville
+21887.SRX
+21940.STS
+22390.XLR
+47274.XTS
+Chevrolet
+20377.2500
+20451.3500
+20650.Astro
+20656.Avalanche
+20667.Aveo
+20702.Blazer
+20770.Camaro
+49403.Captiva Sport
+20817.Cavalier
+57447.City Express
+20824.Classic
+20854.Cobalt
+20856.Colorado
+30000861,20884,53075.Corvette (all)
+20884.  - Corvette
+53075.  - Corvette Stingray
+35026.Cruze
+30019417.Cruze Limited
+21065.Equinox
+27181,21109,26504,26508,22353.Express Vans
+21109.  - Express 1500
+26504.  - Express 2500
+26508.  - Express 3500
+22353.  - Van
+21231.HHR
+21291.Impala
+57087.Impala Limited
+21385.Lumina
+21413.Malibu
+21437.Malibu Classic
+27361.Malibu Hybrid
+30028443.Malibu Limited
+21415.Malibu Maxx
+21500.Metro
+21703.Monte Carlo
+21775.Pickup
+21797.Prizm
+21900.S-10
+27001,22061,22131,22128,22070.Silverado Trucks
+22061.  - Silverado 1500
+22131.  - Silverado 1500 Hybrid
+22128.  - Silverado 2500
+22070.  - Silverado 3500
+42324.Sonic
+47275.Spark
+53187.Spark EV
+52668.SS
+21938.SSR
+22124.Suburban
+22162.Tahoe
+22252.Tahoe Hybrid
+22195.Tracker
+22197.TrailBlazer
+22292.TrailBlazer EXT
+22296.Traverse
+57328.Trax
+22345.Uplander
+22270.Venture
+35025.Volt
+Chrysler
+20303.200
+20388.300
+20394.300C
+20427.300M
+20648.Aspen
+20647.Aspen Hybrid
+20822.Cirrus
+20865.Concorde
+20896.Crossfire
+21253.Grand Voyager
+21327.LHS
+21701.Pacifica
+21801.Prowler
+21744.PT Cruiser
+21921.Sebring
+22191.Town &amp; Country
+22287.Voyager
+Daewoo
+21370.Lanos
+21395.Leganza
+21732.Nubira
+Dodge
+20663.Avenger
+20794.Caliber
+20783.Caravan
+20807.Challenger
+20840.Charger
+20989.Dakota
+20991.Dart
+21019.Durango
+21006.Durango Hybrid
+21249.Grand Caravan
+21268.Intrepid
+21286.Journey
+21411.Magnum
+21688.Neon
+21691.Nitro
+27041,21775,21858,21802,21860.Ram Trucks
+21775.  - Pickup
+21858.  - Ram 1500
+21802.  - Ram 2500
+21860.  - Ram 3500
+21861.Ram Van
+21804.Ram Wagon
+22183.Sprinter
+51826.SRT Viper
+22205.Stratus
+22353.Van
+22363.Viper
+Ferrari
+20420.360 Modena
+36544.360 Spider
+20446.456 GT
+20480.456 M
+40083.458 Italia
+30002053.458 Speciale
+48063.458 Spider
+20505.550 Barchetta
+20489.550 Maranello
+20491.575 M
+20508.599 GTB Fiorano
+51283.599 GTO
+20501.612 Scaglietti
+20768.California
+20832.Challenge Stradale
+21077.Enzo
+52427.F12berlinetta
+21117.F355
+21119.F430
+21121.F50
+42703.FF
+22140.Superamerica
+FIAT
+20483.500
+43523.500C
+53260.500e
+51868.500L
+58488.500X
+Fisker
+41704.Karma
+Ford
+50243.C-Max Energi
+49085.C-Max Hybrid
+20853.Contour
+20906.Crown Victoria
+26882,21050,26506,26502,26507,22353.Econoline Vans
+21050.  - E150
+26506.  - E250
+26502.  - E350
+26507.  - E350 Super Duty
+22353.  - Van
+21039.Edge
+21088.Escape
+21070.Escape Hybrid
+21090.Escort
+21102.Excursion
+32623,21104,21085.Expedition (all)
+21104.  - Expedition
+21085.  - Expedition EL
+21105.Explorer
+21087.Explorer Sport
+21107.Explorer Sport Trac
+26881,21095,21115,21097,21101,21775.F-Series Trucks
+21095.  - F150
+21115.  - F250
+21097.  - F350
+21101.  - F450
+21775.  - Pickup
+21146.Fiesta
+21156.Five Hundred
+21136.Flex
+21138.Focus
+42464.Focus Electric
+30036452.Focus RS
+48704.Focus ST
+21169.Freestar
+21144.Freestyle
+21175.Fusion
+53027.Fusion Energi
+27661.Fusion Hybrid
+21203.GT
+21712.Mustang
+21874.Ranger
+57387.Sedan Police Interceptor
+30021281.Shelby GT350
+22164.Taurus
+22256.Taurus X
+22263.Thunderbird
+28203.Transit Connect
+56747.Transit-150
+56748.Transit-250
+56749.Transit-350
+30032338.Utility Police Interceptor
+22375.Windstar
+22335.ZX2
+GMC
+20607.Acadia
+20778.Canyon
+21062.Envoy
+21075.Envoy XL
+21063.Envoy XUV
+21324.Jimmy
+21897.Safari
+27201,21907,26509,26505,22353.Savana Vans
+21907.  - Savana 1500
+26509.  - Savana 2500
+26505.  - Savana 3500
+22353.  - Van
+27021,21775,22044,22109,22107,22045.Sierra Trucks
+21775.  - Pickup
+22044.  - Sierra 1500
+22109.  - Sierra 1500 Hybrid
+22107.  - Sierra 2500
+22045.  - Sierra 3500
+22148.Sonoma
+30003.Terrain
+22393.Yukon
+22332.Yukon Hybrid
+22394.Yukon XL
+Honda
+20606.Accord
+34203.Accord Crosstour
+20611.Accord Hybrid
+52227.Accord Plug-In Hybrid
+20823.Civic
+20848.Civic Hybrid
+20762.CR-V
+35363.CR-Z
+34743.Crosstour
+21055.Element
+21128.Fit
+47276.Fit EV
+30000212.HR-V
+21300.Insight
+21734.Odyssey
+21720.Passport
+21729.Pilot
+21741.Prelude
+21884.Ridgeline
+21910.S2000
+Hummer
+21229.H1
+21257.H1 Alpha
+21230.H2
+21258.H3
+26261.H3T
+Hyundai
+20605.Accent
+20666.Azera
+21053.Elantra
+49764.Elantra GT
+27781.Elantra Touring
+21073.Entourage
+35963.Equus
+21221.Genesis
+30263.Genesis Coupe
+21899.Santa Fe
+50643.Santa Fe Sport
+22146.Sonata
+39583.Sonata Hybrid
+33386193.Sonata Plug-In Hybrid
+22264.Tiburon
+22302.Tucson
+42323.Veloster
+22272.Veracruz
+22381.XG300
+22317.XG350
+Infiniti
+21046.EX35
+49584.EX37
+34063,21108,49585,21129,21110.FX (all)
+21108.  - FX35
+49585.  - FX37
+21129.  - FX45
+21110.  - FX50
+34103,21151,38826,21179,21153.G (all)
+21151.  - G20
+38826.  - G25
+21179.  - G35
+21153.  - G37
+34123,21236,21279.I (all)
+21236.  - I30
+21279.  - I35
+49665.IPL G
+47283.JX35
+34083,21394,40845,35027,21418,35028.M (all)
+21394.  - M35
+40845.  - M35h
+35027.  - M37
+21418.  - M45
+35028.  - M56
+21806.Q45
+52108.Q50
+52969.Q50 Hybrid
+54539.Q60
+54868.Q60 IPL
+54814.Q70
+56611.Q70h
+58567.Q70L
+34143,21808,54450,21760,54187,54413,54451.QX (all)
+21808.  - QX4
+54450.  - QX50
+21760.  - QX56
+54187.  - QX60
+54413.  - QX70
+54451.  - QX80
+52654.QX60 Hybrid
+International
+20765.CXT
+21409.MXT
+21852.RXT
+Isuzu
+20635.Amigo
+20641.Ascender
+20665.Axiom
+27702,21261,22399,22338,22400,22339.Isuzu Trucks
+21261.  - Hombre
+22399.  - i-280
+22338.  - i-290
+22400.  - i-350
+22339.  - i-370
+21892.Rodeo
+21838.Rodeo Sport
+22211.Trooper
+22268.VehiCROSS
+Jaguar
+30032117.F-Pace
+58107.F-TYPE
+21851.S-Type
+22138.Super V8
+22224.Super V8 Portfolio
+22354.Vanden Plas
+22308.X-Type
+58489.XE
+22315.XF
+22382.XJ
+22322.XJ8
+22384.XJR
+22324.XK
+22326.XK8
+22327.XKR
+Jeep
+20814.Cherokee
+20860.Commander
+20864.Compass
+21222.Grand Cherokee
+21399.Liberty
+21766.Patriot
+56807.Renegade
+22306.Wrangler
+26381.Wrangler Unlimited
+Kia
+20629.Amanti
+20711.Borrego
+52087.Cadenza
+28323.Forte
+32883.Forte Koup
+56013.K900
+21740.Optima
+40463.Optima Hybrid
+21828.Rio
+21885.Rio5
+21840.Rondo
+21970.Sedona
+21974.Sephia
+22084.Sorento
+27761.Soul
+56687.Soul EV
+22090.Spectra
+22161.Spectra5
+22095.Sportage
+Koenigsegg
+33664.CCX
+Lamborghini
+42843.Aventador
+20994.Diablo
+21195.Gallardo
+56867.Huracan
+21683.Murcielago
+Land Rover
+20999.Discovery
+58230.Discovery Sport
+21143.Freelander
+21360.LR2
+21335.LR3
+30004.LR4
+21872.Range Rover
+43403.Range Rover Evoque
+21811.Range Rover Sport
+Lexus
+35964.CT 200h
+34003,21025,48266,21044,21027.ES (all)
+21025.  - ES 300
+48266.  - ES 300h
+21044.  - ES 330
+21027.  - ES 350
+33963,21168,21196,21170,21198,21172,21174.GS (all)
+21168.  - GS 300
+21196.  - GS 350
+21170.  - GS 400
+21198.  - GS 430
+21172.  - GS 450h
+21174.  - GS 460
+30023412.GS 200t
+30038753.GS F
+34883.GX 460
+21213.GX 470
+27821.HS 250h
+34023,21281,30465,21239,21289,30466,21241.IS (all)
+21281.  - IS 250
+30465.  - IS 250C
+21239.  - IS 300
+21289.  - IS 350
+30466.  - IS 350C
+21241.  - IS-F
+30028219.IS 200t
+35029.LFA
+33943,21337,21363,21339,21364.LS (all)
+21337.  - LS 400
+21363.  - LS 430
+21339.  - LS 460
+21364.  - LS 600h L
+34043,21353,21371.LX (all)
+21353.  - LX 470
+21371.  - LX 570
+57887.NX 200t
+57888.NX 300h
+30034963.RC 200t
+30035060.RC 300
+57928.RC 350
+56307.RC F
+33923,21785,21839,21787,21841,27664.RX (all)
+21785.  - RX 300
+21839.  - RX 330
+21787.  - RX 350
+21841.  - RX 400h
+27664.  - RX 450h
+33983,21869,21925,21871.SC (all)
+21869.  - SC 300
+21925.  - SC 400
+21871.  - SC 430
+Lincoln
+20669.Aviator
+20701.Blackwood
+20849.Continental
+21362.LS
+21457.Mark LT
+56027.MKC
+21403.MKS
+27841.MKT
+21425.MKX
+21404.MKZ
+38163.MKZ Hybrid
+21719.Navigator
+30016700.Navigator L
+22286.Town Car
+22336.Zephyr
+Lotus
+21056.Elise
+21094.Esprit
+21076.Esprit V8
+34703.Evora
+21103.Exige
+21084.Exige S
+Maserati
+20891.Coupe
+21197.Ghibli
+21246.GranSport
+21216.GranSport Spyder
+21247.GranTurismo
+21814.Quattroporte
+22185.Spyder
+Maybach
+27481.Landaulet
+22232.Type 57
+22319.Type 62
+Mazda
+20509.626
+27161,20681,20684,20685,20688,21775.B-Series Trucks
+20681.  - B2300
+20684.  - B2500
+20685.  - B3000
+20688.  - B4000
+21775.  - Pickup
+30000208.CX-3
+47277.CX-5
+20764.CX-7
+20788.CX-9
+35965.Mazda2
+21446.Mazda3
+21488.Mazda5
+21447.Mazda6
+21490.MazdaSpeed Miata MX-5
+21448.MazdaSpeed Protege
+21492.MazdaSpeed3
+21450.MazdaSpeed6
+21505.Millenia
+21427.MPV
+21460.MX-5 Miata
+21800.Protege
+21754.Protege5
+21794.RX-8
+22209.Tribute
+22300.Tribute Hybrid
+McLaren
+30001432.650S
+47904.MP4-12C
+Mercedes-Benz
+30022818.AMG C
+32982686.AMG CLA
+30019342.AMG CLS
+30019351.AMG E
+30034663.AMG G
+30024860.AMG GL
+30024884.AMG GLA
+30019374.AMG GLE
+30000114.AMG GT
+30022853.AMG S
+30022872.AMG SL
+30019391.AMG SLK
+57790.B-Class Electric Drive
+20745.C-Class
+20756.CL-Class
+52909.CLA-Class
+20775.CLK-Class
+20758.CLS-Class
+21014.E-Class
+21177.G-Class
+21190.GL-Class
+56288.GLA-Class
+30011556.GLC-Class
+30003456.GLE-Class
+27621.GLK-Class
+21414.M-Class
+30002097.Maybach S
+30021242.Metris-Class
+21824.R-Class
+21906.S-Class
+21930.SL-Class
+21877.SLK-Class
+21932.SLR McLaren
+36043.SLS AMG
+54427.SLS AMG Black Series
+22183.Sprinter
+Mercury
+20886.Cougar
+21223.Grand Marquis
+21449.Marauder
+21421.Mariner
+21451.Mariner Hybrid
+21504.Milan
+27662.Milan Hybrid
+21674.Montego
+21704.Monterey
+21706.Mountaineer
+21714.Mystique
+21944.Sable
+22280.Villager
+MINI
+53149,38203,20855,20857.Clubman
+38203.  - Clubman
+20855.  - Cooper Clubman
+20857.  - Cooper S Clubman
+51005.Convertible
+20872.Cooper
+20874.Cooper S
+53148,41883,41884,36083.Countryman
+41883.  - Cooper Countryman
+41884.  - Cooper S Countryman
+36083.  - Countryman
+20891.Coupe
+51006.Hardtop
+51887.Paceman
+21834.Roadster
+Mitsubishi
+21011.Diamante
+21037.Eclipse
+21060.Endeavor
+21189.Galant
+45843.i-MiEV
+21361.Lancer
+21379.Lancer Evolution
+21368.Lancer Sportback
+21466.Mirage
+21676.Montero
+21705.Montero Sport
+21742.Outlander
+35966.Outlander Sport
+21854.Raider
+Morgan
+20621.Aero 8
+21735.Plus 8
+21834.Roadster
+Nissan
+20419.350Z
+27663.370Z
+20626.Altima
+20639.Altima Hybrid
+20645.Armada
+28283.Cube
+21145.Frontier
+21204.GT-R
+35967.Juke
+35968.Leaf
+21445.Maxima
+21710.Murano
+40403.Murano CrossCabriolet
+43003,48583,52187,52189,52194,48589,52192,52670.NV Vans
+48583.  - NV Cargo
+52187.  - NV Cargo NV1500
+52189.  - NV Cargo NV2500 HD
+52194.  - NV Cargo NV3500 HD
+48589.  - NV Passenger
+52192.  - NV Passenger NV3500 HD
+52670.  - NV200
+21761.Pathfinder
+52655.Pathfinder Hybrid
+21764.Quest
+21894.Rogue
+30033647.Rogue Hybrid
+56530.Rogue Select
+21931.Sentra
+22171.Titan
+33761895.Titan XD
+22274.Versa
+52109.Versa Note
+22330.Xterra
+Oldsmobile
+20623.Alero
+20654.Aurora
+20715.Bravada
+21304.Intrigue
+22111.Silhouette
+Panoz
+20602.AIV Roadster
+21074.Esperante
+21834.Roadster
+Plymouth
+20708.Breeze
+21253.Grand Voyager
+21688.Neon
+21801.Prowler
+22287.Voyager
+Pontiac
+20673.Aztek
+20709.Bonneville
+21148.Firebird
+27401.G3
+21181.G5
+21155.G6
+21186.G8
+21220.Grand Am
+21251.Grand Prix
+21207.GTO
+21670.Montana
+21702.Montana SV6
+22141.Solstice
+22126.Sunfire
+22279.Torrent
+22276.Vibe
+Porsche
+20567.911
+57448.918 Spyder
+20705.Boxster
+20786.Carrera GT
+20791.Cayenne
+58570.Cayenne E-Hybrid
+36987.Cayenne Hybrid
+20819.Cayman
+56014.Macan
+30005.Panamera
+54449.Panamera e-Hybrid
+46443.Panamera Hybrid
+Qvale
+21439.Mangusta
+RAM
+20277.1500
+20377.2500
+20451.3500
+45303.Cargo
+52653.ProMaster 1500
+52651.ProMaster 2500
+54810.ProMaster 2500 Window Van
+52652.ProMaster 3500
+30008915.ProMaster 3500 Window Van
+30000373.ProMaster City
+Rolls-Royce
+20878.Corniche
+35023.Ghost
+21755.Park Ward
+56531.Phantom
+21768.Phantom Coupe
+21724.Phantom Drophead Coupe
+21772.Phantom VI
+22117.Silver Seraph
+52656.Wraith
+Saab
+20565.9-2X
+20549.9-3
+43903.9-3X
+42943.9-4X
+20566.9-5
+20551.9-7X
+Saleen
+21862.S7
+Saturn
+20649.Astra
+20655.Aura
+32663,20652,20657.Aura Hybrid (all)
+20652.  - Aura Green Line
+20657.  - Aura Hybrid
+21305.Ion
+21310.L
+21362.LS
+21351.LW
+21698.Outlook
+21819.Relay
+21924.SC
+22075.Sky
+21875.SL
+21942.SW
+22368.Vue
+32664,22289,22369.Vue Hybrid (all)
+22289.  - Vue Green Line
+22369.  - Vue Hybrid
+Scion
+47565.FR-S
+30003484.iA
+30003493.iM
+35969.iQ
+22401.tC
+22340.xA
+22402.xB
+22341.xD
+smart
+21164.ForTwo
+42803.ForTwo Electric Drive
+Spyker
+38403.C8
+33604.C8 Aileron
+34823.C8 Laviolette
+Subaru
+20687.B9 Tribeca
+20690.Baja
+47566.BRZ
+30031770.Crosstrek
+30031781.Crosstrek Hybrid
+21165.Forester
+21295.Impreza
+36843.Impreza Outback Sport
+51803.Impreza WRX
+38443.Impreza WRX STi
+21378.Legacy
+21697.Outback
+22298.Tribeca
+50683.WRX
+50684.WRX STI
+48265.XV Crosstrek
+52657.XV Crosstrek Hybrid
+Suzuki
+20619.Aerio
+21079.Equator
+21098.Esteem
+21140.Forenza
+21225.Grand Vitara
+34643.Kizashi
+21826.Reno
+22229.Swift
+21893.SX4
+22359.Verona
+22284.Vitara
+22328.XL7
+Tesla
+21655.Model S
+21834.Roadster
+Toyota
+20482.4Runner
+20658.Avalon
+51703.Avalon Hybrid
+20800.Camry
+20774.Camry Hybrid
+20802.Camry Solara
+20821.Celica
+20861.Corolla
+21016.ECHO
+21127.FJ Cruiser
+21260.Highlander
+21233.Highlander Hybrid
+21381.Land Cruiser
+21444.Matrix
+33385383.Mirai
+21405.MR2
+21751.Prius
+47567.Prius c
+47108.Prius Plug-in
+46703.Prius v
+21780.RAV4
+50903.RAV4 EV
+30003416.RAV4 Hybrid
+21933.Sequoia
+22101.Sienna
+22250.Tacoma
+22213.Tundra
+22358.Venza
+22331.Yaris
+Volkswagen
+43344.Beetle
+20766.Cabrio
+27321.CC
+56107.e-Golf
+21064.Eos
+21100.Eurovan
+21242.Golf
+58767.Golf GTI
+47951.Golf R
+30003099.Golf SportWagen
+21183.GTI
+21285.Jetta
+47568.Jetta Hybrid
+50644.Jetta SportWagen
+20691.New Beetle
+21758.Passat
+21723.Phaeton
+21827.R32
+21796.Rabbit
+21896.Routan
+22265.Tiguan
+22189.Touareg
+22281.Touareg 2
+39827.Touareg Hybrid
+Volvo
+20749.C30
+20751.C70
+21857.S40
+21916.S60
+30000874.S60 Cross Country
+30019645.S60 Inscription
+21918.S70
+21920.S80
+22349.V40
+22251.V50
+56208.V60
+30003796.V60 Cross Country
+22350.V70
+22379.XC60
+22313.XC70
+22380.XC90
+30023481.XC90 Hybrid

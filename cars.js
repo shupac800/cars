@@ -65,8 +65,11 @@ function buildURLString() {
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
   urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";  // kwm=ANY means match any keyword
+<<<<<<< HEAD
   console.log("makeKeywordString returns",makeKeywordString(keyword.value.split(" ")));
   console.log("urlString is now",urlString);
+=======
+>>>>>>> d1c8d234b20b017cbb9d4f2bbb4d1dc89190f35c
   urlString += makeYearString(inputYearLow.value,inputYearHigh.value);
   urlString += "&rpp=250"; // results per page, can be (10,20,30,50,100,250)
 
@@ -162,7 +165,11 @@ function displayResults(results) {
   }
 
   document.getElementById("output").innerHTML = outputHTML;
+<<<<<<< HEAD
   document.getElementById("output").style.display = "inline";  // make visible
+=======
+  document.getElementById("output").style.display = "inline";
+>>>>>>> d1c8d234b20b017cbb9d4f2bbb4d1dc89190f35c
 
   // add event listener on each Vehicle ID
   var vehicleID = document.getElementsByClassName("cell-id");
@@ -181,7 +188,11 @@ function sliceIt(wholeString,searchString) {
   if (wholeString.indexOf(searchString) >= 0) {  // was searchString found in wholeString?
     return wholeString.slice(startPos,endPos);
   } else {
+<<<<<<< HEAD
     return "**not found**";
+=======
+    return "***NOT FOUND***";
+>>>>>>> d1c8d234b20b017cbb9d4f2bbb4d1dc89190f35c
   }
 }
 ///////////////////////////
@@ -209,10 +220,17 @@ function makeYearString(yearLowId,yearHighId) {
 function makeKeywordString(keyword) {
   var keywordList = "";
 
+<<<<<<< HEAD
   for (var l = 0; l < keyword.length; l++) {
     keywordList += "+" + keyword[l];
   }
   keywordList = keywordList.substr(1);  // chop off leading "+"
+=======
+  for (var l=0; l<keyword.length; l++) {
+    keywordList += "+" + keyword[l];
+  }
+  keywordList = keywordList.substr(1); // chop off leading "+"
+>>>>>>> d1c8d234b20b017cbb9d4f2bbb4d1dc89190f35c
 
   return "&kw=" + keywordList;
 }
