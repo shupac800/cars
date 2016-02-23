@@ -65,6 +65,8 @@ function buildURLString() {
   urlString += "&mkId=" + inputMake.value;
   urlString += "&mdId=" + inputModel.value;
   urlString += makeKeywordString(keyword.value.split(" ")) + "&kwm=ANY";  // kwm=ANY means match any keyword
+  console.log("makeKeywordString returns",makeKeywordString(keyword.value.split(" ")));
+  console.log("urlString is now",urlString);
   urlString += makeYearString(inputYearLow.value,inputYearHigh.value);
   urlString += "&rpp=250"; // results per page, can be (10,20,30,50,100,250)
 
